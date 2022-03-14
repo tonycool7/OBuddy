@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ProtagonistManager : MonoBehaviour
 {
-    public MainProtagonistController Controller;
-    public MainProtagonistModel Model;
-    public MainProtagonistView View;
+    public ProtagonistController Controller;
+    public ProtagonistModel Model;
+    public ProtagonistView View;
 
     private void Awake()
     {
-        Controller = new MainProtagonistController(Model, View);
+        Controller = new ProtagonistController(Model, View);
     }
 
     void Update()
