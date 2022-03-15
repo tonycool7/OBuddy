@@ -1,10 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class LizardView : AbstractMonsterView, IPointerClickHandler
+public class LizardView : AbstractMonsterView
 {
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("clicking");
-    }
+  
 }

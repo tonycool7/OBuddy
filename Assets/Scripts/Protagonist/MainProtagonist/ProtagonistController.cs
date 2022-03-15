@@ -12,7 +12,6 @@ public class ProtagonistController : AbstractProtagonistController
         Model = SpecificModel;
         View = SpecificView;
         View.OnCharacterMoved += HandlePositionChanged;
-        Debug.Log("Protagonist Controller");
     }
 
     // Called when the model's position changes

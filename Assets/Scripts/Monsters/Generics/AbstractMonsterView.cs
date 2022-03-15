@@ -1,13 +1,15 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public abstract class AbstractMonsterView : MonoBehaviour, IMonstersView
+public class AbstractMonsterView : MonoBehaviour, IPointerClickHandler, IMonstersView
 {
     public event EventHandler<MonsterPositionChangedEvent> OnMonsterPositionChanged = (sender, e) => { };
     public event EventHandler<MonsterHitEvent> OnMonsterHitByRay = (sender, e) => { };
     public event EventHandler<MonsterSpeakingEvent> OnMonsterSpeaking = (sender, e) => { };
-    public Image DialogueBox;
+    public GameObject DialogueBox;
+    private bool showDialogue = false;
 
     private void Update()
     {
@@ -18,11 +20,16 @@ public abstract class AbstractMonsterView : MonoBehaviour, IMonstersView
         }
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        showDialogue = !showDialogue;
+        DialogueBox.SetActive(showDialogue);
+    }
+
     // emit an event that will be captured by the monstercontroller, who will update the monstermodel
     public void MonsterHitByRay()
     {
         var HitEvent = new MonsterHitEvent();
-        DialogueBox.enabled = true;
         OnMonsterHitByRay(this, HitEvent);
     }
 

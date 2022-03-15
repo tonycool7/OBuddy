@@ -51,6 +51,7 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
 
     public void CastRay()
     {
+        Debug.Log("Casting ray");
         Vector3 screenMouseClick = Input.mousePosition;
         Vector2 worldClickPostion = Camera.main.ScreenToWorldPoint(screenMouseClick);
 
