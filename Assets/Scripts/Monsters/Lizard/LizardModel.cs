@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class LizardModel : AbstractMonsterModel
 {
-
+    private void Awake()
+    {
+        MonsterName = "Lizard";
+    }
 }

@@ -60,6 +60,8 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         if (hit)
         {
             Debug.Log(hit.transform.gameObject.name);
+            IMonstersView monster = hit.collider.GetComponent<IMonstersView>();
+            if (monster != null) monster.MonsterHitByRay();
         }
 
         //Method to draw the ray in scene for debug purpose

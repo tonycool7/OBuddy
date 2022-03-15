@@ -7,4 +7,6 @@ public interface IMonstersModel
     public float MonsterHealth { get; set; }
     public Enum MonsterDialogues { get; set; }
     public bool Aggressor { get; set; }
+
+    public string MonsterName { get; set; }
 }
