@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class RabbitView : AbstractMonsterView
 {
-
+    public RabbitModel AModel;
+    void Awake()
+    {
+        controller = new RabbitController(AModel);
+    }
 }

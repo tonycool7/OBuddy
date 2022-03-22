@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RabbitController : AbstractMonsterController
 {
-    public RabbitController(IMonstersModel Model, IMonstersView View) : base(Model, View)
+    public RabbitController(IMonstersModel Model) : base(Model)
     {
     }
 }

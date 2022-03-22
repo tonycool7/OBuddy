@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LizardController : AbstractMonsterController
 {
-    public LizardController(IMonstersModel Model, IMonstersView View) : base(Model, View)
+    public LizardController(IMonstersModel Model) : base(Model)
     {
     }
 }

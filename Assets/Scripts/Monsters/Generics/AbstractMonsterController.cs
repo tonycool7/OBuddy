@@ -2,19 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractMonsterController : IMonstersController
+public class AbstractMonsterController : IMonstersController
 {
     private IMonstersModel Model;
-    private IMonstersView View;
+    private DialogueManager dialogueManager;
 
-    public AbstractMonsterController(IMonstersModel IModel, IMonstersView IView)
+    public AbstractMonsterController(IMonstersModel IModel)
     {
         Model = IModel;
-        View = IView;
-        View.OnMonsterHitByRay += MonsterHitByRay;
+        dialogueManager = new DialogueManager(Model.MonsterDialogues);
+        dialogueManager.PrepareDialogues();
     }
 
-    public void MonsterHitByRay(object Sender, MonsterHitEvent e)
+    public string FetchMonsterDialogue()
+    {
+        return dialogueManager.GetNextDialogue();
+    }
+
+    public void MonsterHitByRay()
     {
         Debug.Log($"{Model.MonsterName} has been Hit");
         Model.MonsterHealth = -10;

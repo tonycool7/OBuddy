@@ -4,12 +4,13 @@ using UnityEngine;
 public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
 {
     public float movementSpeed = 20f;
-    public Animator protagonistAnimator;
     public event EventHandler<GameCharacterMovedEvent> OnCharacterMoved = (sender, e) => { };
 
     private Vector2 _TargetPosition;
     private float _Direction;
     private bool Moving = false;
+    private Animator protagonistAnimator;
+
     private float Speed => Time.deltaTime * movementSpeed;
     public Vector2 TargetPosition
     {
@@ -20,6 +21,10 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         }
     }
 
+    private void Awake()
+    {
+        protagonistAnimator = transform.GetComponent<Animator>();
+    }
     private void Update()
     {
         MoveProtagonist();
@@ -40,13 +45,14 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         {
             _Direction = transform.position.x > _TargetPosition.x ? 1f : -1f;
             transform.position = Vector2.MoveTowards(transform.position, _TargetPosition, Speed);
-            SetAnimation(_Direction);
         }
         else
         {
             _Direction = 0;
-            SetAnimation(_Direction);
+            Moving = false;
         }
+
+        SetAnimation(_Direction);
     }
 
     public void CastRay()
@@ -59,7 +65,6 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
 
         if (hit)
         {
-            Debug.Log(hit.transform.gameObject.name);
             IMonstersView monster = hit.collider.GetComponent<IMonstersView>();
             if (monster != null) monster.MonsterHitByRay();
         }
@@ -70,7 +75,7 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
 
     public virtual void SetAnimation(float direction)
     {
-        protagonistAnimator.SetFloat("Horizontal", direction);
+        protagonistAnimator.SetBool("InMotion", Moving);
         transform.rotation = (direction > 0f) ? Quaternion.AngleAxis(-180, Vector3.up) : Quaternion.AngleAxis(0, Vector3.up);
     }
 }
