@@ -13,6 +13,8 @@ public class ItemAssets : MonoBehaviour
     }
 
 
+    public Transform pfItemWorld;
+
     public Sprite keySprite;
     public Sprite axSprite;
     public Sprite basketSprite;
