@@ -32,5 +32,22 @@ public class Item
         }
     }
 
+    public Color GetColor()
+    {
+        switch (itemType)
+        {
+            default:
+
+            case ItemType.Key:      return new Color(0, 0, 0);
+            case ItemType.Ax:       return new Color(1, 0, 0);
+            case ItemType.Basket:   return new Color(0, 0, 1);
+            case ItemType.Pickaxe:  return new Color(1, 1, 0);
+            case ItemType.Random:   return new Color(0, 1, 1);
+        }
+
+
+    }
+
+
 
 }
