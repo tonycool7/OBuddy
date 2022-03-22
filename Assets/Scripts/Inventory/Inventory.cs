@@ -12,9 +12,9 @@ public class Inventory
     {
         itemList = new List<Item>();
 
-        AddItem(new Item { itemType = Item.ItemType.Coin, amount = 1 });
-        AddItem(new Item { itemType = Item.ItemType.BoxKit, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.Key, amount = 1 });
+        AddItem(new Item { itemType = Item.ItemType.Ax, amount = 1 });
+        AddItem(new Item { itemType = Item.ItemType.Pickaxe, amount = 1 });
 
         Debug.Log(itemList.Count);
 

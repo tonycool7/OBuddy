@@ -2209,6 +2209,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2e324d73bf641cf82256595cd927f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1434290902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1434290904}
+  - component: {fileID: 1434290903}
+  m_Layer: 0
+  m_Name: ItemAssets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1434290903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434290902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501091511cd5d475a86c79f7a48efc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keySprite: {fileID: 21300000, guid: 35a1610a92364493d927f57c17f4fceb, type: 3}
+  axSprite: {fileID: 21300000, guid: 19ad942ff38ba48548338ebe3ceb3e96, type: 3}
+  basketSprite: {fileID: 21300000, guid: 39e113cbeebf046f39731dacf4a71743, type: 3}
+  pickaxeSprite: {fileID: 21300000, guid: d16f588d543a84267bc28844b24b33a5, type: 3}
+  randomeSprite: {fileID: 21300000, guid: ed8ce06dd7e9a4a79937cf2df18e8fd0, type: 3}
+--- !u!4 &1434290904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434290902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -61.9448, y: 76.604935, z: 0.048008088}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1472414637
 GameObject:
   m_ObjectHideFlags: 0
