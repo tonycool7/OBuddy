@@ -35,4 +35,15 @@ public class ItemWorld : MonoBehaviour
         spriteRenderer.sprite = item.GetSprite();
         light2D.color = item.GetColor();
     }
+
+    public Item GetItem()
+    {
+        return item;
+    }
+
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
+
 }
