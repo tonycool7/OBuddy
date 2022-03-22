@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractProtagonistController
+public class AbstractProtagonistController : IProtaginistController
 {
+    protected IProtaginistModel IModel;
+    public AbstractProtagonistController(IProtaginistModel SpecificModel)
+    {
+        IModel = SpecificModel;
+    }
 }

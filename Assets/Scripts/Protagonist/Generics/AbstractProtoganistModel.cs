@@ -4,6 +4,7 @@ using System;
 public abstract class AbstractProtagonistModel : MonoBehaviour, IProtaginistModel
 {
 	private Vector2 _CurrentPosition;
+	private bool _CollisionDetected = false;
 
 	public event EventHandler<PositionChangedEventArgs> OnPositionChanged = (sender, e) => { };
 
@@ -23,4 +24,6 @@ public abstract class AbstractProtagonistModel : MonoBehaviour, IProtaginistMode
 			}
 		}
 	}
+
+    public bool CollisionDetected { get => _CollisionDetected; set { _CollisionDetected = value;  } }
 }
