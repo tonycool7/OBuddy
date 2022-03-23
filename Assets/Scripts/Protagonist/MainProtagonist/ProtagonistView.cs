@@ -7,10 +7,11 @@ public class ProtagonistView : AbstractProtagonistView
 {
     private ProtagonistModel specificModel;
 
-    void Awake()
+    public ProtagonistView()
     {
         controller = new ProtagonistController(specificModel);
         specificModel = new ProtagonistModel();
         model = specificModel;
     }
+
 }
