@@ -6,6 +6,8 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
     public float movementSpeed = 20f;
     public event EventHandler<GameCharacterMovedEvent> OnCharacterMoved = (sender, e) => { };
     public Vector3 cameraOffset;
+    public bool shouldCameraMoveWithPlayer = false;
+
     [Range(1,10)]
     public float cameraSmoothFactor;
 
@@ -57,7 +59,7 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         {
             _Direction = transform.position.x > _TargetPosition.x ? 1f : -1f;
             transform.position = Vector2.MoveTowards(transform.position, _TargetPosition, Speed);
-            UpdateCameraPosition();
+            if (shouldCameraMoveWithPlayer) UpdateCameraPosition();
         }
         else
         {
@@ -83,6 +85,7 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
      
         if (hit)
         {
+            print(hit.collider.tag);
             switch (hit.collider.tag)
             {
                 case "Floor":
@@ -91,11 +94,11 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
                 case "Monster":
                     IMonstersView monster = hit.collider.GetComponent<IMonstersView>();
                     if (monster != null) monster.MonsterHitByRay();
+                    _TargetPosition = hit.point;
                     break;
                 default:
                     break;
             }
-           
         }
     }
 
