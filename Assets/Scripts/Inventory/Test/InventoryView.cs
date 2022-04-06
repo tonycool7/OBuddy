@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class InventoryView : MonoBehaviour
 {
+    Inventory instance;
+
     private void Start()
     {
-        Inventory.instance.OnItemAddedToInventory += AddItemToInventoryView;
-        Inventory.instance.OnItemRemovedFromInventory += RemoveItemFromInventoryView;
+        instance = Inventory.instance;
+        instance.OnItemAddedToInventory += AddItemToInventoryView;
+        instance.OnItemRemovedFromInventory += RemoveItemFromInventoryView;
     }
 
     private void AddItemToInventoryView(object o, ItemAddedToInventory itemArg)
@@ -20,36 +22,47 @@ public class InventoryView : MonoBehaviour
 
     private void RemoveItemFromInventoryView(object o, ItemRemovedFromInventory itemArg)
     {
+        Item item = itemArg.item;
         print($"{itemArg.item.name} removed from inventory");
+        RerenderInventory("remove", item);
+    }
+
+    private void OnRemoveBtnClick(Item item)
+    {
+        instance.Remove(item);
     }
 
     private void RerenderInventory(string action, Item item)
     {
-        switch(action)
+        foreach (Transform child in transform)
         {
-            case "add":
-                foreach (Transform child in transform)
+            if (child.gameObject.tag == "InventorySlot")
+            {
+                Transform slot = child.GetChild(0);
+                Transform itemSlot = slot.GetChild(0);
+                Image icon = itemSlot.GetComponent<Image>();
+                Button itemBtn = slot.GetComponent<Button>();
+                Button removeBtn = child.GetChild(1).GetComponent<Button>();
+
+                if (!icon.IsActive() && action == "add")
                 {
-                    if (child.gameObject.tag == "InventorySlot")
-                    {
-                        Image icon = child.GetChild(0).GetChild(0).GetComponent<Image>();
-                        if (!icon.IsActive())
-                        {
-                            icon.enabled = true;
-                            icon.sprite = item.icon; 
-                            break;
-                        }
-                    }
+                    icon.enabled = true;
+                    icon.sprite = item.icon;
+                    removeBtn.interactable = true;
+                    itemBtn.onClick.AddListener(() => item.Use());
+                    removeBtn.onClick.AddListener(() => OnRemoveBtnClick(item));
+                    break;
                 }
-                break;
-            case "remove":
-                break;
-
-            default:
-                break;
+                else if (icon.sprite == item.icon && action == "remove")
+                {
+                    icon.enabled = false;
+                    icon.sprite = null;
+                    removeBtn.interactable = false;
+                    itemBtn.onClick.RemoveAllListeners();
+                    removeBtn.onClick.RemoveAllListeners();
+                    break;
+                }
+            }
         }
-
-       
-
     }
 }

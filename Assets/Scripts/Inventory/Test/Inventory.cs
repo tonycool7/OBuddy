@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -55,8 +54,11 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void Remove(Item item)
+    public bool Remove(Item item)
     {
         items.Remove(item);
+        // Invoke the event only when a class / method is subscribed to it
+        OnItemRemovedFromInventory?.Invoke(this, new ItemRemovedFromInventory(item));
+        return true;
     }
 }
