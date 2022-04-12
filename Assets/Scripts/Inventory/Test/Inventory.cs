@@ -25,6 +25,10 @@ public class Inventory : MonoBehaviour
     public event EventHandler<ItemAddedToInventory> OnItemAddedToInventory = (sender, args) => { };
     public event EventHandler<ItemRemovedFromInventory> OnItemRemovedFromInventory = (sender, args) => { };
 
+    private Item _selectedItem;
+
+    public Item selectedItem { get { return _selectedItem; } set { _selectedItem = value; } }
+
     #region Singleton
     public static Inventory instance;
 

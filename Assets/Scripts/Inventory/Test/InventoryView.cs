@@ -5,12 +5,17 @@ using System.Collections.Generic;
 public class InventoryView : MonoBehaviour
 {
     Inventory instance;
+    public Image myItem;
+    public Image cancelItem;
 
     private void Start()
     {
         instance = Inventory.instance;
         instance.OnItemAddedToInventory += AddItemToInventoryView;
         instance.OnItemRemovedFromInventory += RemoveItemFromInventoryView;
+        Button cancelItemBtn = cancelItem.GetComponent<Button>();
+
+        cancelItemBtn.onClick.AddListener(() => removeSelectedItem());
     }
 
     private void AddItemToInventoryView(object o, ItemAddedToInventory itemArg)
@@ -42,27 +47,43 @@ public class InventoryView : MonoBehaviour
                 Transform itemSlot = slot.GetChild(0);
                 Image icon = itemSlot.GetComponent<Image>();
                 Button itemBtn = slot.GetComponent<Button>();
-                Button removeBtn = child.GetChild(1).GetComponent<Button>();
 
                 if (!icon.IsActive() && action == "add")
                 {
                     icon.enabled = true;
                     icon.sprite = item.icon;
-                    removeBtn.interactable = true;
-                    itemBtn.onClick.AddListener(() => item.Use());
-                    removeBtn.onClick.AddListener(() => OnRemoveBtnClick(item));
+                    itemBtn.onClick.AddListener(() => this.UseItem(item));
                     break;
                 }
                 else if (icon.sprite == item.icon && action == "remove")
                 {
                     icon.enabled = false;
                     icon.sprite = null;
-                    removeBtn.interactable = false;
                     itemBtn.onClick.RemoveAllListeners();
-                    removeBtn.onClick.RemoveAllListeners();
+
+                    if (myItem.sprite != null && myItem.sprite == item.icon)
+                    {
+                        removeSelectedItem();
+                    }
                     break;
                 }
             }
         }
+    }
+
+    private void removeSelectedItem()
+    {
+        cancelItem.enabled = false;
+        myItem.sprite = null;
+        myItem.enabled = false;
+        instance.selectedItem = null;
+    }
+
+    private void UseItem(Item item)
+    {
+        instance.selectedItem = item;
+        myItem.sprite = item.icon;
+        myItem.enabled = true;
+        cancelItem.enabled = true;
     }
 }
