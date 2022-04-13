@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IMonstersController
 {
     public void MonsterHitByRay();
-    public string FetchMonsterDialogue();
+   // public string FetchMonsterDialogue();
 }

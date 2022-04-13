@@ -17,8 +17,8 @@ public interface IMonstersView
 
     public void UpdatePosition();
     public void UpdateHealth();
-    public void ShowDialogue();
+ //   public void ShowDialogue();
     public void MonsterHitByRay();
-    public void DisplayNextDialogue(string sentence);
+ //   public void DisplayNextDialogue(string sentence);
 
 }

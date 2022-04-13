@@ -28,8 +28,8 @@ public class AbstractMonsterView : MonoBehaviour, IMonstersView
 
     private void Start()
     {
-        GameObject dialogueTextObj = DialogueBox.transform.GetChild(0).gameObject;
-        dialogueText = dialogueTextObj.GetComponent<TextMeshProUGUI>();
+//        GameObject dialogueTextObj = DialogueBox.transform.GetChild(0).gameObject;
+//        dialogueText = dialogueTextObj.GetComponent<TextMeshProUGUI>();
     }
 
     // emit an event that will be captured by the monstercontroller, who will update the monstermodel
@@ -37,20 +37,22 @@ public class AbstractMonsterView : MonoBehaviour, IMonstersView
     {
         controller.MonsterHitByRay();
     }
+    /*
+        public void ShowDialogue()
+        {
+            showDialogue = !showDialogue;
+            DialogueBox.SetActive(showDialogue);
+            var sentence = controller.FetchMonsterDialogue();
+            dialogueText.text = sentence;
+        }
 
-    public void ShowDialogue()
-    {
-        showDialogue = !showDialogue;
-        DialogueBox.SetActive(showDialogue);
-        var sentence = controller.FetchMonsterDialogue();
-        dialogueText.text = sentence;
-    }
 
-    public void DisplayNextDialogue(string sentence)
-    {
-        //dialogueText.text = sentence;
-    }
+        public void DisplayNextDialogue(string sentence)
+        {
+            dialogueText.text = sentence;
+        }
 
+    */
     public void UpdateHealth()
     {
         throw new NotImplementedException();

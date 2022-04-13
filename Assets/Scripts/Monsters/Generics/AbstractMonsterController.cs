@@ -10,14 +10,14 @@ public class AbstractMonsterController : IMonstersController
     public AbstractMonsterController(IMonstersModel IModel)
     {
         Model = IModel;
-        dialogueManager = new DialogueManager(Model.MonsterDialogues);
-        dialogueManager.PrepareDialogues();
+//        dialogueManager = new DialogueManager(Model.MonsterDialogues);
+  //      dialogueManager.PrepareDialogues();
     }
 
-    public string FetchMonsterDialogue()
+/*    public string FetchMonsterDialogue()
     {
         return dialogueManager.GetNextDialogue();
-    }
+    }*/
 
     public void MonsterHitByRay()
     {

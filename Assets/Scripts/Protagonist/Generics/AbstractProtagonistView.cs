@@ -49,7 +49,7 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         if (collision.tag == "Monster")
         {
             IMonstersView monster = collision.GetComponent<IMonstersView>();
-            if (monster != null) monster.ShowDialogue();
+//            if (monster != null) monster.ShowDialogue();
         }
     }
 
