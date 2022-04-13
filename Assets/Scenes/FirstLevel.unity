@@ -1168,8 +1168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 82.1083, y: -14.9459}
-  m_SizeDelta: {x: 147.2166, y: 61.8917}
+  m_AnchoredPosition: {x: 94.5738, y: -9.672}
+  m_SizeDelta: {x: 172.1476, y: 51.344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &536865971
 MonoBehaviour:
@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_text: Buddy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -28.108295, w: 16.061844}
+  m_margin: {x: 0, y: 0, z: 10.247097, w: 2.6374664}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1641,8 +1641,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2023,7 +2023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 235, y: -42.576}
+  m_AnchoredPosition: {x: 237.9, y: -50.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881922629
@@ -2935,7 +2935,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1455b2e8d1554947abd1e1614770559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueBox: {fileID: 0}
+  dialogueCat:
+    name: 
+    sentences: []
   AModel: {fileID: 852049561}
 --- !u!1001 &1184837422
 PrefabInstance:
@@ -3051,7 +3053,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b06f88fa3e2a8940a7dd178112faaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueBox: {fileID: 0}
+  dialogueCat:
+    name: 
+    sentences: []
   AModel: {fileID: 912461085}
 --- !u!1 &1212361789
 GameObject:
@@ -3213,7 +3217,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a8be41506ebc24697f1ef05b831ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueBox: {fileID: 0}
+  dialogueCat:
+    name: Kitty
+    sentences:
+    - Thanks, for letting me out!
+    - Cats developed their language to talk to humans.
+    - 'They built the set of signals to tell them what they need and what they don''t
+      want their cat parents to do. '
+    - However, when your cat talks back to you, especially if they do that often,
+      they may need your attention.
   AModel: {fileID: 1212361791}
 --- !u!1001 &1230076278
 PrefabInstance:

@@ -10,7 +10,10 @@ public class AbstractMonsterView : MonoBehaviour, IMonstersView
     public event EventHandler<MonsterHitEvent> OnMonsterHitByRay = (sender, e) => { };
     public event EventHandler<MonsterSpeakingEvent> OnMonsterSpeaking = (sender, e) => { };
     public event EventHandler<MonsterNextDialogue> OnMonsterNextDialogue = (sender, e) => { };
-    public GameObject DialogueBox;
+ //   public GameObject DialogueBox;
+
+    public Dialogue dialogueCat;
+
 
     protected IMonstersModel model;
     protected IMonstersController controller;
@@ -28,14 +31,16 @@ public class AbstractMonsterView : MonoBehaviour, IMonstersView
 
     private void Start()
     {
-//        GameObject dialogueTextObj = DialogueBox.transform.GetChild(0).gameObject;
-//        dialogueText = dialogueTextObj.GetComponent<TextMeshProUGUI>();
+        //        GameObject dialogueTextObj = DialogueBox.transform.GetChild(0).gameObject;
+        //        dialogueText = dialogueTextObj.GetComponent<TextMeshProUGUI>();
+        
     }
 
     // emit an event that will be captured by the monstercontroller, who will update the monstermodel
     public void MonsterHitByRay()
     {
         controller.MonsterHitByRay();
+        TriggerDialogue();
     }
     /*
         public void ShowDialogue()
@@ -61,6 +66,12 @@ public class AbstractMonsterView : MonoBehaviour, IMonstersView
     public void UpdatePosition()
     {
         throw new NotImplementedException();
+    }
+
+    public void TriggerDialogue()
+    {
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogueCat);
+
     }
 
 }
