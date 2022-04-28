@@ -1,29 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AbstractMonsterController : IMonstersController
 {
-    private IMonstersModel Model;
-    private DialogueManager dialogueManager;
+    private IMonstersModel model;
+    DialogueManager dialogueManager;
 
     public AbstractMonsterController(IMonstersModel IModel)
     {
-        Model = IModel;
-//        dialogueManager = new DialogueManager(Model.MonsterDialogues);
-  //      dialogueManager.PrepareDialogues();
+        model = IModel;
     }
 
-/*    public string FetchMonsterDialogue()
+    public void MonsterSpeaking()
     {
-        return dialogueManager.GetNextDialogue();
-    }*/
+        dialogueManager = DialogueManager.instance;
+        dialogueManager.StartDialogue(model.MonsterDialogue);
+    }
 
     public void MonsterHitByRay()
     {
-        Debug.Log($"{Model.MonsterName} has been Hit");
-        Model.MonsterHealth = -10;
-        Debug.Log($"{Model.MonsterName}'s current health is {Model.MonsterHealth}");
+        Debug.Log($"{model.MonsterName} has been Hit");
+        model.MonsterHealth = -10;
+        Debug.Log($"{model.MonsterName}'s current health is {model.MonsterHealth}");
     }
 
 }

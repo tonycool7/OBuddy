@@ -5,11 +5,6 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
 {
     public float movementSpeed = 20f;
     public event EventHandler<GameCharacterMovedEvent> OnCharacterMoved = (sender, e) => { };
-    public Vector3 cameraOffset;
-    public bool shouldCameraMoveWithPlayer = false;
-
-    [Range(1,10)]
-    public float cameraSmoothFactor;
 
     private Vector2 _TargetPosition;
     private float _Direction;
@@ -48,8 +43,9 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         model.CollisionDetected = true;
         if (collision.tag == "Monster")
         {
+            print("we hit a monster!");
             IMonstersView monster = collision.GetComponent<IMonstersView>();
-//            if (monster != null) monster.ShowDialogue();
+            if (monster != null) monster.InitiateDialogue();
         }
     }
 
@@ -59,7 +55,6 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         {
             _Direction = transform.position.x > _TargetPosition.x ? 1f : -1f;
             transform.position = Vector2.MoveTowards(transform.position, _TargetPosition, Speed);
-            if (shouldCameraMoveWithPlayer) UpdateCameraPosition();
         }
         else
         {
@@ -68,12 +63,6 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         }
 
         SetAnimation(_Direction);
-    }
-
-    private void UpdateCameraPosition()
-    {
-        Vector3 smoothPostion = Vector3.Lerp(Camera.main.transform.position, (Vector3)_TargetPosition + cameraOffset, cameraSmoothFactor*Time.deltaTime);
-        Camera.main.transform.position = smoothPostion;
     }
 
     protected void CastRay()

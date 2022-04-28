@@ -4,28 +4,46 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
+    public GameObject DialoguePanel;
     private Queue<string> sentences;
 
-    public Animator animator;
+    #region Singleton
+    public static DialogueManager instance;
 
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("DialogueManager has more tha one instance");
+            return;
+        }
 
-
+        instance = this;
+    }
+    #endregion
     private void Start()
     {
         sentences = new Queue<string>();
+    }
 
+    void CloseDialoguePanel()
+    {
+        DialoguePanel.SetActive(false);
+    }
+
+    void OpenDialoguePanel()
+    {
+        DialoguePanel.SetActive(true);
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
-
-        animator.SetBool("IsOpen", true);
-        nameText.text = dialogue.name;
+        OpenDialoguePanel();
+        nameText.text = dialogue.characterName;
         sentences.Clear();
 
         foreach (string  sentence in dialogue.sentences)
@@ -56,42 +74,12 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.text += letter;
             yield return null;
-
-
         }
     }
-    /*
-    private string[] dialogues;
-    private Queue<string> dialogueQueue;
-
-    public DialogueManager(string[] sentences)
-    {
-        dialogues = sentences;
-        dialogueQueue = new Queue<string>();
-    }
-
-    public void PrepareDialogues()
-    {
-        foreach(string dialogue in dialogues)
-        {
-            dialogueQueue.Enqueue(dialogue);
-        }
-    }
-
-    public string GetNextDialogue()
-    {
-        if(dialogueQueue.Count == 0)
-        {
-            EndDialogue();
-            return "";
-        }
-        return dialogueQueue.Dequeue();
-    }
-    */
 
     void EndDialogue()
     {
-        animator.SetBool("IsOpen", false);
+        CloseDialoguePanel();
     }
     
 

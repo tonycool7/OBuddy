@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
     {
         if(instance != null)
         {
-            Debug.LogWarning("Inventory has more tha none instance");
+            Debug.LogWarning("Inventory has more tha one instance");
             return;
         }
 
