@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac2c21dcb41d2347ab24a39e5cc7746, type: 3}
-  m_Name: Key
+  m_Script: {fileID: 11500000, guid: f493abf16a70b5643a0595f0b64ac733, type: 3}
+  m_Name: Chest
   m_EditorClassIdentifier: 
-  name: Golden Key
-  icon: {fileID: 21300000, guid: 35a1610a92364493d927f57c17f4fceb, type: 3}
+  name: Miracle Chest
+  icon: {fileID: 21300000, guid: 4241601ca327b4f07b9a5db5bd26957f, type: 3}
   isDefaultItem: 0
