@@ -53,7 +53,7 @@ Cyclocat: I really don't know? Maybe it's 2:95?
 ~playerCuriosity += 20
 -> cage_question
 ->DONE
-* What the hell are you doing in the cage?
+* What the hell were you doing in the cage?
 {ChangeMood("CycloCat", "Happy")}
 Cyclocat: Huh.... After sipping Lizart's favorite smoothie, I'm on my vaccation, you know.
 {ChangeMood("Player", "Angry")}
