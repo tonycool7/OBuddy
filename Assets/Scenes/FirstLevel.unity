@@ -1966,9 +1966,10 @@ MonoBehaviour:
   _MonsterDialogue:
     characterName: Lizardo
     sentences:
-    - I was given a riddle to deliver to you...
-    - What is a monsters favorite Halloween food?
-    - Bring me the answer to the riddle and I would unlock the next clue to you quest
+    - "\u2019m sorry, Inspector. I didn't join the other monsters at the party yesterday."
+    - The only thing I can tell you is that they were drunk.
+    - Then there's the CycloCat. This fool drank my breakfast smoothie. It took me
+      over an hour to make it!
 --- !u!1 &881922627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,8 +2309,9 @@ MonoBehaviour:
   _MonsterDialogue:
     characterName: Rabbito
     sentences:
-    - Hello, are you the monster slayer... the brave mighty one?
-    - To proof you are who you say you are, show me the magic staff..
+    - Hello, Inspector. The only thing I can tell you is that your buddy left the
+      party a little early yesterday.
+    - He didn't even drink with us.
 --- !u!1001 &1002791444
 PrefabInstance:
   m_ObjectHideFlags: 0
