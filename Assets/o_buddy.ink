@@ -3,38 +3,48 @@ EXTERNAL HideCharacter(characterName)
 
 // Charaters Are:
             //Player
-            //CycloCat
-            //Lizard
+            //Cyclocat
+            //Lizzard
+            //Rabbo
+            //Major
+            //Buddy
 EXTERNAL ChangeMood(characterName, mood)
 
-// Mood Are:
+// Moods Are:
             //Good
             //Angry
             //Serious
             //Happy
             //Other
+
 EXTERNAL ShowScene(sceneName, position)
 
-
-
 // variables
-
-// trusts
-VAR lizardTrust = 0
-VAR catTrust = 0
-
 // curiosity for Easter Egg
 VAR playerCuriosity = 0
 
-// is CycloCat still in the cage?
-VAR is_caged = true
+
 
 -> start
 
 === start ===
+
 {ShowCharacter("Player", "Left", "Serious")}
-{ShowCharacter("CycloCat", "Right", "Good")}
-//{ShowScene("TheHall", "Center")}
+
+Player: So, let's start! #askQuestion
+
+-> character_choose
+===character_choose===
+*** Cyclacat, get in here!
+-> cyclocat_story
+*** Lizzard, get in here!
+-> lizzard_story
+*** Rabbo, get in here!
+-> rabbo_story
+
+
+=== cyclocat_story ===
+{ShowCharacter("Cyclocat", "Right", "Good")}
 Player: So, Cyclocat. 
 Cyclocat: Yes, sir. 
 {ChangeMood("Player", "Good")}
@@ -47,15 +57,16 @@ Cyclocat: Don't you see, sir?
 -> cage_question 
 ->DONE
 * What time is now?
-{ChangeMood("CycloCat", "Happy")}
+{ChangeMood("Cyclocat", "Happy")}
 Cyclocat: I really don't know? Maybe it's 2:95? 
 {ChangeMood("Player", "Angry")}
+Player: You are a real idiot!
 ~playerCuriosity += 20
 -> cage_question
 ->DONE
 * What the hell were you doing in the cage?
-{ChangeMood("CycloCat", "Happy")}
-Cyclocat: Huh.... I told ya! After sipping Lizardo's favorite smoothie...
+{ChangeMood("Cyclocat", "Happy")}
+Cyclocat: Huh.... I told ya! After sipping Lizzard's favorite smoothie...
 {ChangeMood("Player", "Angry")}
 Player: Such a horrible day, and now you? Stop joking, you freak! 
 Cyclocat: Why, sir? What did happen?
@@ -65,111 +76,234 @@ Cyclocat: Maybe I can help you to find your buddy? I saw him yesterday at the pa
 Player: This freak is kidding me. #askQuestion
 
 ->buddy_question
+
 === buddy_question ===
 *** Tell me what you know about my buddy?
 -> tell_about_buddy
-*** Tell me who put you here?
+*** Tell me who put you in the cage?
 -> tell_about_who
 *** Tell me about the party yesterday?
 -> tell_about_party
 
 
 
-=== tell_about_party ===
-{ChangeMood("CycloCat", "Other")}
+=== tell_about_buddy===
+{ChangeMood("Cyclocat", "Other")}
 Cyclocat: Your buddy was with us yesterday.
 {ChangeMood("Player", "Happy")}
 Player: With the freaks like you? Imposible!
 Cyclocat: Yes, sir! And he was drinking his favourite whiskey with joogya!
 Player: I don't beleive you.
-Cyclocat: There is one thing I can say, and I after you will defeneitly beleive me.
-Player: Okay, so say that!
-{ChangeMood("CycloCat", "Serious")}
-Cyclocat: At first, find a key, and let me out from this cage!
+Cyclocat: I'll tell one thing, and you'll absolutely believe me after that.
+Player: Okay, so tell me!
+{ChangeMood("Cyclocat", "Serious")}
+Cyclocat: I'll say it since you let me out of the cage!
 {ChangeMood("Player", "Angry")}
-Player: Huh. Am I looking like a dumb? 
-Cyclocat: Okay, then you will never know what your buddy told me.
-~playerCuriosity += 5
--> buddy_question
-
-=== tell_about_buddy ===
-Player: So, what you know about him?
-Cyclocat: This cage doesn't allow me to speak.
-{ChangeMood("Player", "Other")}
-Player: What have you been doing for the last 5 minutes? Meowing?
-{ChangeMood("CycloCat", "Good")}
-Cyclocat: I mean, it's hard to talk about your buddy under these circumstances.
-~playerCuriosity += 10
--> buddy_question
+Player: Nooo! Stop this pathos, you freak! Tell me right now!
+{ChangeMood("Cyclocat", "Happy")}
+Cyclocat: So your buddy was wearing The Scrolling Thrones T-shirt you got him for his birthday.
+{ChangeMood("Player", "Happy")}
+Player: No way! How do you know these details?!
+{ChangeMood("Cyclocat", "Good")}
+Cyclocat: I told ya! He was with us yesterday and he told me that!
+{ChangeMood("Player", "Serious")}
+Player: Okay! Now I guess I beleive you that he was with you yesterday.
+-> cyclocat_questions 
 
 === tell_about_who ===
-Player: So, Lizard put you here?
-{ChangeMood("CycloCat", "Angry")}
+Player: So, Lizzard put you in the cage?
+{ChangeMood("Cyclocat", "Angry")}
 Cyclocat: Yes, that freak!
 {ChangeMood("Player", "Serious")}
 Player: Because you drank his smoothie?
 Cyclocat: Yes.
 Player: Bastard!
-{ChangeMood("CycloCat", "Serious")}
+{ChangeMood("Cyclocat", "Serious")}
 Cyclocat: Thank's for support, sir.
 Player: I don't support you, freak! I'm angry because the only person in this city who can put someone in a cage is ME!
-{ChangeMood("CycloCat", "Other")}
-Cyclocat: Looks like Mr. Lizard too.
-Player: This we will see!
--> lizart_story
+{ChangeMood("Cyclocat", "Other")}
+Cyclocat: Looks like Mr. Lizzard too.
+Player: That we will see!
+~playerCuriosity += 15
+-> buddy_question
 
-=== lizart_story ===
+=== tell_about_party ===
+{ChangeMood("Cyclocat", "Happy")}
+Cyclocat: It was simply a regular party, nothing out of the usual. It lasted long, though!
+{ChangeMood("Player", "Other")}
+Player: How much did you drink yesterday?
+{ChangeMood("Cyclocat", "Good")}
+Cyclocat: Math isn't my strong suit. I have no idea how to do arithmetic. Maybe 42?
+{ChangeMood("Player", "Serious")}
+Player: 42 bottles?
+{ChangeMood("Cyclocat", "Good")}
+Cyclocat: Maybe not bottles, but shotes. I don't know
+~playerCuriosity += 10
+-> buddy_question
 
-{HideCharacter("CycloCat")}
-{ShowCharacter("Lizard", "Right", "Good")}
+
+=== cyclocat_questions ===
+*** How did you find the chest?
+-> tell_about_chest
+*** Who was with you at the party?
+-> tell_about_company
+*** When did my buddy arrive at the party?
+-> tell_about_buddy_arrive
+
+=== tell_about_chest ===
+{ChangeMood("Cyclocat", "Happy")}
+Cyclocat: Lizzard and I were there, and later Rabbo and, as I said, your buddy arrived.
+{ChangeMood("Player", "Other")}
+Player: Lizzard? But he told me that she wasn't at the party 
+{ChangeMood("Cyclocat", "Good")}
+Cyclocat: Sir, you've been fooled by this liar. All night, she was with us. She also argued that insects were better than salmon in terms of flavor.
+{ChangeMood("Player", "Angry")}
+Player: Stop telling me about your idiotic conversations with Lizzard!
+{ChangeMood("Cyclocat", "Serious")}
+Cyclocat: I am sorry sir.
+-> cyclocat_questions
+
+
+=== tell_about_company ===
+{ChangeMood("Cyclocat", "Happy")}
+Cyclocat: I saw it around 2 hours later, when the party began. It was right there on our table. And it was quite heavy. It bothered me, so I set it away.
+{ChangeMood("Player", "Other")}
+Player: Heavy? But it was empty and not heavy at all!
+{ChangeMood("Cyclocat", "Good")}
+Cyclocat: Yes, I noticed it was empty at the end of the party. Someone most likely removed something from the chest. There were a few drips of liquid as well.
+{ChangeMood("Player", "Serious")}
+Player: Do you know who brought the chest?
+{ChangeMood("Cyclocat", "Good")}
+Cyclocat: No idea!
+-> cyclocat_questions
+
+=== tell_about_buddy_arrive ===
+{ChangeMood("Cyclocat", "Happy")}
+Cyclocat: We had already there when he came.
+{ChangeMood("Player", "Other")}
+Player: You, Lizzard and Rabbo?
+{ChangeMood("Cyclocat", "Good")}
+Cyclocat: No, Lizzard and me. Rabbo came after your buddy!
+{ChangeMood("Player", "Angry")}
+Player: When my buddy left?
+{ChangeMood("Cyclocat", "Serious")}
+Cyclocat: I don't remember. But he left even without saying goodbye.
+{ChangeMood("Player", "Happy")}
+Player: It's okay. Freaks like you don't need to say goodbye!
+-> cyclocat_questions
+
+
+=== lizzard_story ===
+
+{ShowCharacter("Lizzard", "Right", "Good")}
 {ChangeMood("Player", "Good")}
-Lizart: Hey, sir!
+Lizzard: Hey, sir!
 Player: Let's ask him... #askQuestion
--> lizart_question
+-> Lizzard_question
 
-=== lizart_question ===
-*** Do you know where my buddy is?
+=== Lizzard_question ===
+*** Tell me what you know about my buddy?
 -> tell_about_buddy2
-*** Why Cyclocat is caged?
--> tell_about_cage
+*** Tell me why you put Cyclocat in the cage?
+-> tell_about_why
 *** Tell me about the party yesterday?
 -> tell_about_party2
 
 
 === tell_about_buddy2 ===
-Lizart: I don't know.
+Lizzard: I'm completely unaware of the situation.
 Player: Who knows?
-Lizart: I don't know who knows?
+Lizzard: I don't know who knows?
 {ChangeMood("Player", "Angry")}
 Player: What you know?
-{ChangeMood("Lizard", "Other")}
-Lizart: I do no nothing.
+{ChangeMood("Lizzard", "Other")}
+Lizzard: I do no nothing.
 ~playerCuriosity += 10
--> lizart_question
+-> Lizzard_question
 
-=== tell_about_cage ===
-{ChangeMood("Lizard", "Angry")}
-Lizart: Because that freak drank my smoothie.
+=== tell_about_why ===
+{ChangeMood("Lizzard", "Angry")}
+Lizzard: Because that freak drank my smoothie.
 {ChangeMood("Player", "Serious")}
 Player: Stop calling each other freaks! You, Freaks!
-{ChangeMood("Lizard", "Other")}
-Lizart: But...
+{ChangeMood("Lizzard", "Other")}
+Lizzard: But...
 {ChangeMood("Player", "Angry")}
-Player: Give me the keys. Immidiatly.
-{ChangeMood("Lizard", "Angry")}
-Lizart: I threw the keys somewhere. I don't care about him.
-Player: Where did you throw the keys?
-Lizart: I don't know, somewhere near.
+Player: Who do you think you are? Only I can put monsters like you in cages in this city!
+{ChangeMood("Lizzard", "Angry")}
+Lizzard: But...
+{ChangeMood("Player", "Other")}
+Player: Shut up!
 ->END
 
 ===tell_about_party2===
-{ChangeMood("Lizard", "Serious")}
-Lizart: I wasn't at party.
+{ChangeMood("Lizzard", "Serious")}
+Lizzard: I wasn't at party.
 Player: Why?
-{ChangeMood("Lizard", "Happy")}
-Lizart: Because I dont have QR!
+{ChangeMood("Lizzard", "Happy")}
+Lizzard: Because I dont have QR!
 {ChangeMood("Player", "Happy")}
 Player: Oh, I see.
-~playerCuriosity += 20
-->lizart_question
-// to be continued... 
+{ChangeMood("Lizzard", "Happy")}
+Lizzard: Any other question?
+{ChangeMood("Player", "Angry")}
+Player: You think I'm as dumb as you are to have taken your word for it? Stop playing games and give me the truth, because I know you were at the party the other night.
+{ChangeMood("Lizzard", "Serious")}
+Lizzard: Whoever said I was at the party, they were lying! Sir, they're deceiving you, sir!
+{ChangeMood("Player", "Good")}
+Player: Okay, I'll go ahead and get on with my investigation. Don't you ever try to fool me!
+{ChangeMood("Lizzard", "Good")}
+Lizzard: Sir, I only need to prove my innocence.
+{ChangeMood("Player", "Happy")}
+Player: Well, get out now!
+->Lizzard_question
+
+=== rabbo_story ===
+{ShowCharacter("Rabbo", "Right", "Good")}
+{ChangeMood("Player", "Good")}
+Rabbo: I am here, sir!
+Player: Let's ask him... #askQuestion
+-> Rabbo_question
+
+=== Rabbo_question ===
+*** Tell me what you know about my buddy!
+-> tell_about_buddy3
+*** Tell me about the chest!
+-> tell_about_chest2
+*** Tell me about the party yesterday!
+-> tell_about_party3
+
+===tell_about_buddy3===
+{ChangeMood("Rabbo", "Serious")}
+Rabbo: Last night, he was with us at the party!
+Player: When he came?
+Rabbo: Honestly, I can't really remember. Yesterday, I arrived really too late. He just stayed for a few minutes and then left. He wasn't drinking.
+Player: When he went, did he say goodbye?
+Rabbo: Yes, he and I shook hands.
+Player: I can't believe he was at the same party with idiots like you. What he was wearing?
+Rabbo: Maybe a t-shirt with the logo of some well-known musical group?
+Player: The Scrolling Thrones T-shirt?
+Rabbo: Yes, exactly!
+->Rabbo_question
+
+===tell_about_chest2===
+{ChangeMood("Rabbo", "Serious")}
+Rabbo: There was a gift for my boyfriend.
+Player: Who is your boyfriend?
+Rabbo: Grizzly, and bought a teddy bear for him!
+Player: Stop telling me about your idiotic gifts to your boyfriend!
+Rabbo: But you just asked me to tell it, sir!
+Player: Was there any bottle or some liquid?
+Rabbo: No, sir. There was only the teddy bear!
+->Rabbo_question
+
+
+===tell_about_party3===
+{ChangeMood("Rabbo", "Serious")}
+Rabbo: Drinks, music, dances. 
+Player: Who was there with you?
+Rabbo: Cyclocat and Lizzard.
+Player: So, Lizzard was with you?
+Rabbo: They were arguing all night long over some foods, wasn't that the case?
+Player: I am asking questions, not you!
+->Rabbo_question

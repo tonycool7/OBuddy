@@ -39,7 +39,7 @@ public class InkManager : MonoBehaviour
     }
 
 
-    private int _lizardTrust;
+    /*private int _lizardTrust;
     public int LizardTrust
     {
         get => _lizardTrust;
@@ -49,7 +49,7 @@ public class InkManager : MonoBehaviour
             _lizardTrust = value;
         }
     }
-
+    
     private int _catTrust;
     public int CatTrust
     {
@@ -60,7 +60,7 @@ public class InkManager : MonoBehaviour
             _catTrust = value;
         }
     }
-
+    */
     private static string _loadedState;
 
     void Start()
@@ -107,8 +107,8 @@ public class InkManager : MonoBehaviour
         //        RelationshipStrength = (int)_story.variablesState["relationship_strength"];
         //        MentalHealth = (int)_story.variablesState["mental_health"];
         PlayerCuriosity = (int)_story.variablesState["playerCuriosity"];
-        LizardTrust = (int)_story.variablesState["lizardTrust"];
-        CatTrust = (int)_story.variablesState["catTrust"];
+//        LizardTrust = (int)_story.variablesState["lizardTrust"];
+ //       CatTrust = (int)_story.variablesState["catTrust"];
 
   
 
@@ -117,7 +117,7 @@ public class InkManager : MonoBehaviour
             PlayerCuriosity = (int)value;
         });
 
-        _story.ObserveVariable("lizardTrust", (arg, value) =>
+       /* _story.ObserveVariable("lizardTrust", (arg, value) =>
         {
             LizardTrust= (int)value;
         });
@@ -125,7 +125,7 @@ public class InkManager : MonoBehaviour
         _story.ObserveVariable("catTrust", (arg, value) =>
         {
             CatTrust = (int)value;
-        });
+        });*/
     }
         
     public void DisplayNextLine()

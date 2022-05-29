@@ -146,11 +146,11 @@ public class CharacterManager : MonoBehaviour
     {
         switch (name)
         {
-            case CharacterName.CycloCat:
+            case CharacterName.Cyclocat:
                 return _cyclocatMoods;
             case CharacterName.Player:
                 return _playerMoods;
-            case CharacterName.Lizard:
+            case CharacterName.Lizzard:
                 return _lizardMoods;
             default:
                 Debug.LogError($"Could not find moodset for {name}");
