@@ -35,7 +35,7 @@ VAR is_caged = true
 {ShowCharacter("Player", "Left", "Serious")}
 {ShowCharacter("CycloCat", "Right", "Good")}
 //{ShowScene("TheHall", "Center")}
-Player: Hey, Cyclocat. 
+Player: So, Cyclocat. 
 Cyclocat: Yes, sir. 
 {ChangeMood("Player", "Good")}
 Player: What question to ask, hmm?. #askQuestion
@@ -55,11 +55,11 @@ Cyclocat: I really don't know? Maybe it's 2:95?
 ->DONE
 * What the hell were you doing in the cage?
 {ChangeMood("CycloCat", "Happy")}
-Cyclocat: Huh.... After sipping Lizart's favorite smoothie, I'm on my vaccation, you know.
+Cyclocat: Huh.... I told ya! After sipping Lizardo's favorite smoothie...
 {ChangeMood("Player", "Angry")}
 Player: Such a horrible day, and now you? Stop joking, you freak! 
 Cyclocat: Why, sir? What did happen?
-Player: I can't find my friend since early morning, the city is in chaos. And I have no idea why you're in a cage... See, everything is horrible!
+Player: I can't find my buddy since early morning, the city is in chaos. You were in a cage... So, everything is horrible!
 Cyclocat: Maybe I can help you to find your buddy? I saw him yesterday at the party.
 
 Player: This freak is kidding me. #askQuestion
