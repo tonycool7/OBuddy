@@ -23,6 +23,8 @@ public class CharacterManager : MonoBehaviour
     private CharacterMoods _rabbitMoods;
     [SerializeField]
     private CharacterMoods _majorMoods;
+    [SerializeField]
+    private CharacterMoods _patrickMoods;
 
     private static List<CharacterData> _loadedCharacters;
 
@@ -160,6 +162,8 @@ public class CharacterManager : MonoBehaviour
                 return _rabbitMoods;
             case CharacterName.Major:
                 return _majorMoods;
+            case CharacterName.Patrick:
+                return _patrickMoods;
             default:
                 Debug.LogError($"Could not find moodset for {name}");
                 return null;
