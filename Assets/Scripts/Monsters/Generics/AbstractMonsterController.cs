@@ -2,18 +2,40 @@ using UnityEngine;
 
 public class AbstractMonsterController : IMonstersController
 {
-    private IMonstersModel model;
-    DialogueManager dialogueManager;
+    protected IMonstersModel model;
+    protected DialogueManager dialogueManager;
+
+    public Inventory inventory;
 
     public AbstractMonsterController(IMonstersModel IModel)
     {
         model = IModel;
     }
 
-    public void MonsterSpeaking()
+    public virtual void MonsterSpeaking()
     {
+        inventory = Inventory.instance;
         dialogueManager = DialogueManager.instance;
-        dialogueManager.StartDialogue(model.MonsterDialogue);
+
+        if (inventory != null && inventory.selectedItem)
+        {
+            if (inventory.selectedItem.name == model.handCuff.name)
+            {
+                dialogueManager.StartDialogue(model.dialogueForHandCuff);
+            }
+            else if (inventory.selectedItem.name == model.chest.name)
+            {
+                dialogueManager.StartDialogue(model.dialogueForChest);
+            }
+            else
+            {
+                dialogueManager.StartDialogue(model.monsterDialogue);
+            }
+        }
+        else
+        {
+            dialogueManager.StartDialogue(model.monsterDialogue);
+        }
     }
 
     public void MonsterHitByRay()

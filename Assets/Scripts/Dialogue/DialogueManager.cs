@@ -8,7 +8,8 @@ public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
-    public GameObject DialoguePanel;
+    public GameObject dialoguePanel;
+    public bool isDialoueOpen = true;
     private Queue<string> sentences;
 
     #region Singleton
@@ -32,12 +33,14 @@ public class DialogueManager : MonoBehaviour
 
     void CloseDialoguePanel()
     {
-        DialoguePanel.SetActive(false);
+        isDialoueOpen = false;
+        dialoguePanel.SetActive(false);
     }
 
     void OpenDialoguePanel()
     {
-        DialoguePanel.SetActive(true);
+        isDialoueOpen = true;
+        dialoguePanel.SetActive(true);
     }
 
     public void StartDialogue(Dialogue dialogue)

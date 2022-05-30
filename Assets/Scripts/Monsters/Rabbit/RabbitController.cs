@@ -1,10 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class RabbitController : AbstractMonsterController
 {
-    public RabbitController(IMonstersModel Model) : base(Model)
+    RabbitModel rabbitModel;
+
+    public RabbitController(RabbitModel Model) : base(Model)
     {
+        rabbitModel = Model;
+    }
+
+    public override void MonsterSpeaking()
+    {
+        base.MonsterSpeaking();
+
+        if (inventory != null && inventory.selectedItem && inventory.selectedItem.name == rabbitModel.chest.name)
+        {
+            inventory.Remove(inventory.selectedItem);
+        }
     }
 }

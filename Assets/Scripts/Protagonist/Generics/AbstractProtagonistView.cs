@@ -6,10 +6,11 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
     public float movementSpeed = 20f;
     public event EventHandler<GameCharacterMovedEvent> OnCharacterMoved = (sender, e) => { };
 
-    private Vector2 _TargetPosition;
-    private float _Direction;
-    private bool Moving = false;
+    private Vector2 _targetPosition;
+    private float _direction;
+    private bool moving = false;
     private Animator protagonistAnimator;
+    private DialogueManager dialogueManager;
 
     protected IProtaginistModel model;
     protected IProtaginistController controller;
@@ -19,22 +20,22 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
 
     void Awake()
     {
-        _TargetPosition = transform.position;
+        _targetPosition = transform.position;
     }
     void Start()
     {
+        dialogueManager = DialogueManager.instance;
         protagonistAnimator = transform.GetComponent<Animator>();
     }
 
     protected void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !dialogueManager.isDialoueOpen)
         {
-            Moving = true;
+            moving = true;
             model.CollisionDetected = false;
             CastRay();
         }
-
         MoveProtagonist();
     }
 
@@ -51,18 +52,18 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
 
     protected void MoveProtagonist()
     {
-        if (Moving && (Vector2)transform.position != _TargetPosition && !model.CollisionDetected)
+        if (moving && (Vector2)transform.position != _targetPosition && !model.CollisionDetected)
         {
-            _Direction = transform.position.x > _TargetPosition.x ? 1f : -1f;
-            transform.position = Vector2.MoveTowards(transform.position, _TargetPosition, Speed);
+            _direction = transform.position.x > _targetPosition.x ? 1f : -1f;
+            transform.position = Vector2.MoveTowards(transform.position, _targetPosition, Speed);
         }
         else
         {
-            _Direction = 0;
-            Moving = false;
+            _direction = 0;
+            moving = false;
         }
 
-        SetAnimation(_Direction);
+        SetAnimation(_direction);
     }
 
     protected void CastRay()
@@ -74,16 +75,15 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
      
         if (hit)
         {
-            print(hit.collider.tag);
             switch (hit.collider.tag)
             {
                 case "Floor":
-                    _TargetPosition = hit.point;
+                    _targetPosition = hit.point;
                     break;
                 case "Monster":
                     IMonstersView monster = hit.collider.GetComponent<IMonstersView>();
                     if (monster != null) monster.MonsterHitByRay();
-                    _TargetPosition = hit.point;
+                    _targetPosition = hit.point;
                     break;
                 default:
                     break;
@@ -93,7 +93,7 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
 
     protected virtual void SetAnimation(float direction)
     {
-        protagonistAnimator.SetBool("InMotion", Moving);
+        protagonistAnimator.SetBool("InMotion", moving);
         transform.GetComponent<SpriteRenderer>().flipX = (direction > 0f);
     }
 }

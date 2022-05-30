@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class LizardController : AbstractMonsterController
 {
-    public LizardController(IMonstersModel Model) : base(Model)
+    LizardModel lizardModel;
+
+    public LizardController(LizardModel Model) : base(Model)
     {
+        lizardModel = Model;
     }
 }
