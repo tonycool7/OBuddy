@@ -39,6 +39,19 @@ public class InkManager : MonoBehaviour
     }
 
 
+    private int _endOfInvestigation;
+
+    public int EndOfInvestigation
+    {
+
+        get => _endOfInvestigation;
+        private set
+        {
+            Debug.Log($"Level status: {_endOfInvestigation}, Level is ended: {value}");
+            _endOfInvestigation = value;
+        }
+    }
+
     /*private int _lizardTrust;
     public int LizardTrust
     {
@@ -66,7 +79,7 @@ public class InkManager : MonoBehaviour
     void Start()
     {
         _characterManager = FindObjectOfType<CharacterManager>();
-//        _sceneManager = FindObjectOfType<SceneManager>();
+        //_sceneManager = FindObjectOfType<SceneManager>();
 
         StartStory();
 
@@ -107,8 +120,9 @@ public class InkManager : MonoBehaviour
         //        RelationshipStrength = (int)_story.variablesState["relationship_strength"];
         //        MentalHealth = (int)_story.variablesState["mental_health"];
         PlayerCuriosity = (int)_story.variablesState["playerCuriosity"];
-//        LizardTrust = (int)_story.variablesState["lizardTrust"];
- //       CatTrust = (int)_story.variablesState["catTrust"];
+        EndOfInvestigation = (int)_story.variablesState["endOfInvestigation"];
+        //        LizardTrust = (int)_story.variablesState["lizardTrust"];
+        //        CatTrust = (int)_story.variablesState["catTrust"];
 
   
 
@@ -117,15 +131,20 @@ public class InkManager : MonoBehaviour
             PlayerCuriosity = (int)value;
         });
 
-       /* _story.ObserveVariable("lizardTrust", (arg, value) =>
+        _story.ObserveVariable("endOfInvestigation", (arg, value) =>
         {
-            LizardTrust= (int)value;
+            EndOfInvestigation = (int)value;
         });
 
-        _story.ObserveVariable("catTrust", (arg, value) =>
-        {
-            CatTrust = (int)value;
-        });*/
+        /* _story.ObserveVariable("lizardTrust", (arg, value) =>
+         {
+             LizardTrust= (int)value;
+         });
+
+         _story.ObserveVariable("catTrust", (arg, value) =>
+         {
+             CatTrust = (int)value;
+         });*/
     }
         
     public void DisplayNextLine()

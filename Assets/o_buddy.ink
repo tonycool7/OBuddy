@@ -23,6 +23,7 @@ EXTERNAL ShowScene(sceneName, position)
 // curiosity for Easter Egg
 VAR playerCuriosity = 0
 VAR characterCounter = 0
+VAR endOfInvestigation = false
 
 
 
@@ -308,7 +309,6 @@ Player: Let's ask him... #askQuestion
 *** Tell me about the party yesterday!
 -> tell_about_party3
 
-Player: Blabla
 
 ===tell_about_buddy3===
 {ChangeMood("Rabbo", "Serious")}
@@ -344,7 +344,15 @@ Rabbo: But you just asked me to tell it, sir!
 Player: Was there any bottle or some liquid?
 {ChangeMood("Rabbo", "Good")}
 Rabbo: No, sir. There was only the teddy bear!
-->Rabbo_question
+Player: Okey, get out!
+{ChangeMood("Rabbo", "Happy")}
+Rabbo: What?
+{ChangeMood("Player", "Angry")}
+Player:Get out!
+{ChangeMood("Rabbo", "Good")}
+{HideCharacter("Rabbo")}
+~characterCounter++
+->character_choose
 
 
 ===tell_about_party3===
@@ -375,6 +383,5 @@ Boss: Could you collect enough evidence to arrest someone?
 Player: Yes, I think I have now!
 {ChangeMood("Major", "Good")}
 Boss: Then, all the best! Let the person who committed this crime be arrested!
+~endOfInvestigation = true
 ->END
-
-
