@@ -8,4 +8,16 @@ public class LizardController : AbstractMonsterController
     {
         lizardModel = Model;
     }
+
+    public override void MonsterSpeaking()
+    {
+        base.MonsterSpeaking();
+        gameManager = GameManager.instance;
+
+        if (inventory != null && inventory.selectedItem && inventory.selectedItem.name == lizardModel.handCuff.name)
+        {
+            gameManager.goToBadEnding = true;
+            dialogueManager.StartDialogue(lizardModel.dialogueForHandCuff);
+        }
+    }
 }

@@ -4,8 +4,8 @@ public class AbstractMonsterController : IMonstersController
 {
     protected IMonstersModel model;
     protected DialogueManager dialogueManager;
-
-    public Inventory inventory;
+    protected Inventory inventory;
+    protected GameManager gameManager;
 
     public AbstractMonsterController(IMonstersModel IModel)
     {
@@ -19,11 +19,7 @@ public class AbstractMonsterController : IMonstersController
 
         if (inventory != null && inventory.selectedItem)
         {
-            if (inventory.selectedItem.name == model.handCuff.name)
-            {
-                dialogueManager.StartDialogue(model.dialogueForHandCuff);
-            }
-            else if (inventory.selectedItem.name == model.chest.name)
+            if (inventory.selectedItem.name == model.chest.name)
             {
                 dialogueManager.StartDialogue(model.dialogueForChest);
             }
@@ -40,9 +36,10 @@ public class AbstractMonsterController : IMonstersController
 
     public void MonsterHitByRay()
     {
-        Debug.Log($"{model.MonsterName} has been Hit");
-        model.MonsterHealth = -10;
-        Debug.Log($"{model.MonsterName}'s current health is {model.MonsterHealth}");
+        Debug.Log("monster hit");
+        //Debug.Log($"{model.MonsterName} has been Hit");
+        //model.MonsterHealth = -10;
+        //Debug.Log($"{model.MonsterName}'s current health is {model.MonsterHealth}");
     }
 
 }

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 public class InventoryView : MonoBehaviour
 {
+    GameManager gameManager;
     Inventory instance;
+
     public Image myItem;
     public Image cancelItem;
 
@@ -13,6 +15,7 @@ public class InventoryView : MonoBehaviour
         instance = Inventory.instance;
         instance.OnItemAddedToInventory += AddItemToInventoryView;
         instance.OnItemRemovedFromInventory += RemoveItemFromInventoryView;
+        gameManager = GameManager.instance;
         Button cancelItemBtn = cancelItem.GetComponent<Button>();
 
         cancelItemBtn.onClick.AddListener(() => removeSelectedItem());
@@ -21,14 +24,15 @@ public class InventoryView : MonoBehaviour
     private void AddItemToInventoryView(object o, ItemAddedToInventory itemArg)
     {
         Item item = itemArg.item;
-        print($"{item.name} added to inventory");
+        gameManager.UpdateFeedBack($"{item.name} added to inventory");
         RerenderInventory("add", item);
+        if (item.name == gameManager.expectedItem.name) gameManager.SetHasPickedItem(true);
     }
 
     private void RemoveItemFromInventoryView(object o, ItemRemovedFromInventory itemArg)
     {
         Item item = itemArg.item;
-        print($"{itemArg.item.name} removed from inventory");
+        gameManager.UpdateFeedBack($"{itemArg.item.name} removed from inventory");
         RerenderInventory("remove", item);
     }
 
@@ -50,6 +54,7 @@ public class InventoryView : MonoBehaviour
 
                 if (!icon.IsActive() && action == "add")
                 {
+                    print($"adding {item.name}");
                     icon.enabled = true;
                     icon.sprite = item.icon;
                     itemBtn.onClick.AddListener(() => this.UseItem(item));

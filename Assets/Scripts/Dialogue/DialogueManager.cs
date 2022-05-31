@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialoguePanel;
     public bool isDialoueOpen = true;
     private Queue<string> sentences;
+    GameManager gameManager;
 
     #region Singleton
     public static DialogueManager instance;
@@ -29,6 +30,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         sentences = new Queue<string>();
+        gameManager = GameManager.instance;
     }
 
     void CloseDialoguePanel()
@@ -83,6 +85,8 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         CloseDialoguePanel();
+        if (gameManager.goToBadEnding) gameManager.GoToBadEndingLevel();
+        if (gameManager.goToHappyEnding) gameManager.GoToHappyEndingLevel();
     }
     
 

@@ -5,7 +5,6 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
 {
     public float movementSpeed = 20f;
     public event EventHandler<GameCharacterMovedEvent> OnCharacterMoved = (sender, e) => { };
-    public GameObject arrrowToNextLevel;
 
     private Vector2 _targetPosition;
     private float _direction;
@@ -14,6 +13,7 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
     private DialogueManager dialogueManager;
     private string monsterTag = "Monster";
     private string arrowTag = "Arrow";
+    GameManager gameManager;
 
     protected IProtaginistModel model;
     protected IProtaginistController controller;
@@ -27,6 +27,7 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
     }
     void Start()
     {
+        gameManager = GameManager.instance;
         dialogueManager = DialogueManager.instance;
         protagonistAnimator = transform.GetComponent<Animator>();
     }
@@ -49,11 +50,7 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         {
             IMonstersView monster = collision.GetComponent<IMonstersView>();
             if (monster != null) monster.InitiateDialogue();
-        } else if (collision.tag == arrowTag)
-        {
-            arrrowToNextLevel.gameObject.SetActive(true);
         }
-
     }
 
     protected void MoveProtagonist()
@@ -77,10 +74,11 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         Vector3 screenMouseClick = Input.mousePosition;
         Vector2 worldClickPostion = Camera.main.ScreenToWorldPoint(screenMouseClick);
 
-        RaycastHit2D hit = Physics2D.Raycast(worldClickPostion, Vector2.zero, 20f);
+        RaycastHit2D hit = Physics2D.Raycast(worldClickPostion, Vector2.zero);
      
         if (hit)
         {
+            print(hit.collider.tag);
             switch (hit.collider.tag)
             {
                 case "Floor":

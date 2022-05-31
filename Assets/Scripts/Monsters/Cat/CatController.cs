@@ -1,3 +1,4 @@
+using UnityEngine;
 
 public class CatController : AbstractMonsterController
 {
@@ -12,7 +13,8 @@ public class CatController : AbstractMonsterController
     {
         dialogueManager = DialogueManager.instance;
         inventory = Inventory.instance;
-       
+        gameManager = GameManager.instance;
+
         if (inventory != null && inventory.selectedItem)
         {
             if (inventory.selectedItem.name == catModel.key.name)
@@ -21,15 +23,23 @@ public class CatController : AbstractMonsterController
                 catModel.chestItem.SetActive(true);
                 inventory.Remove(inventory.selectedItem);
                 dialogueManager.StartDialogue(catModel.dialogueForKey);
+                gameManager.UpdateFeedBack($"{catModel.name} has been set free");
+                gameManager.SetCatFreeState(true);
             } else if (inventory.selectedItem.name == catModel.chest.name)
             {
                 dialogueManager.StartDialogue(catModel.dialogueForChest);
             }
             else if (inventory.selectedItem.name == catModel.handCuff.name)
             {
+                gameManager.goToBadEnding = true;
                 dialogueManager.StartDialogue(catModel.dialogueForHandCuff);
-            }
-        } else
+            } 
+        }
+        else if (!catModel.cage.activeInHierarchy)
+        {
+            dialogueManager.StartDialogue(catModel.dialogueForFreeCat);
+        }
+        else
         {
             dialogueManager.StartDialogue(catModel.monsterDialogue);
         }

@@ -21,7 +21,7 @@ public class ItemRemovedFromInventory : EventArgs {
 public class Inventory : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
-    public int spaceSlots = 5;
+    public int spaceSlots = 3;
     public event EventHandler<ItemAddedToInventory> OnItemAddedToInventory = (sender, args) => { };
     public event EventHandler<ItemRemovedFromInventory> OnItemRemovedFromInventory = (sender, args) => { };
 

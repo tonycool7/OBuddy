@@ -4,14 +4,18 @@ using UnityEngine.SceneManagement;
 public class ArrowToNextLevel : MonoBehaviour
 {
     string playerTag = "Player";
+    GameManager gameManager;
 
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void Start()
     {
-        print("here");
+        gameManager = GameManager.instance;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag(playerTag))
         {
-            print("mobing");
-            SceneManager.LoadScene("OBuddyScene");
+            gameManager.GoToLevel3();
         }
     }
 }

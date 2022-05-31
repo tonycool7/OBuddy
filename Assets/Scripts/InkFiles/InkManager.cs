@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InkManager : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class InkManager : MonoBehaviour
     [SerializeField]
     private Color _questionTextColor;
 
+    GameManager gameManager;
+
     private CharacterManager _characterManager;
   //  private SceneManager _sceneManager;
 
@@ -33,7 +36,7 @@ public class InkManager : MonoBehaviour
         get => _playerCuriosity;
         private set
         {
-            Debug.Log($"Updating Player's curiosity level. Current Level: {_playerCuriosity}, Updated level: {value}");
+            gameManager.UpdateFeedBack($"Updating Player's curiosity level. Current Level: {_playerCuriosity}, Updated level: {value}");
             _playerCuriosity = value;
         }
     }
@@ -49,6 +52,7 @@ public class InkManager : MonoBehaviour
         {
             Debug.Log($"Level status: {_endOfInvestigation}, Level is ended: {value}");
             _endOfInvestigation = value;
+            if (value == 1) gameManager.GoToLevel2();
         }
     }
 
@@ -84,6 +88,8 @@ public class InkManager : MonoBehaviour
         StartStory();
 
         InitializeVariables();
+
+        gameManager = GameManager.instance;
     }
 
     private void StartStory()

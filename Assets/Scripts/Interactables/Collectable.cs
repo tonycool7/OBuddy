@@ -3,6 +3,12 @@ using UnityEngine;
 public class Collectable : AInteractables
 {
     public Item item;
+    GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = GameManager.instance;
+    }
 
     public override void Interact()
     {
@@ -17,7 +23,7 @@ public class Collectable : AInteractables
 
     void Pickup()
     {
-        print($"picking up {item.name}");
+        gameManager.UpdateFeedBack($"picking up {item.name}");
         AddToInventory();
     }
 
