@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts
 {
-    public enum CharacterName { Player, Cyclocat, Lizzard };
+    public enum CharacterName { Player, Cyclocat, Lizzard, Rabbo, Major, Patrick };
     public enum CharacterPosition { Center, Left, Right };
     public enum CharacterMood { Good, Happy, Angry, Serious, Other };
 }

@@ -608,10 +608,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 4
   Good: {fileID: 21300000, guid: 8f1f3d57d38be4af988921f11f806d80, type: 3}
-  Angry: {fileID: 0}
+  Angry: {fileID: 21300000, guid: f5260c8336e324e79a17bfcd0382d100, type: 3}
   Serious: {fileID: 21300000, guid: c414e4c4ac5174f139f548c16102fca4, type: 3}
   Happy: {fileID: 0}
-  Other: {fileID: 0}
+  Other: {fileID: 21300000, guid: f5260c8336e324e79a17bfcd0382d100, type: 3}
 --- !u!1 &699596260
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +719,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 75431df2cc34841639692ee37ee851ca, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 311a365a6173e4fbca19d162be9da8b9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -876,7 +876,7 @@ GameObject:
   - component: {fileID: 1078664583}
   - component: {fileID: 1078664582}
   m_Layer: 3
-  m_Name: TheForest
+  m_Name: TheSculptures
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -964,7 +964,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f05188847d4a4677b5298278b96743f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 463ee426280d5444f84e5d06554d5b0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717e0f5a3bf284e10bf434b7480beafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inkJsonAsset: {fileID: 4900000, guid: 6b47aa43b38a44ee9af82a5c34dadae7, type: 3}
+  _inkJsonAsset: {fileID: 4900000, guid: 12ffc5a65903942ec91983008969a2ac, type: 3}
   _textField: {fileID: 699596262}
   _choiceButtonContainer: {fileID: 1544116344}
   _choiceButtonPrefab: {fileID: 1960231904013347824, guid: 9480e654a011347dc97c074f2bdbdc17, type: 3}
