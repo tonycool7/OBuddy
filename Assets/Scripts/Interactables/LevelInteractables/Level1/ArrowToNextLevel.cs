@@ -15,7 +15,7 @@ public class ArrowToNextLevel : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(playerTag))
         {
-            gameManager.GoToLevel3();
+            gameManager.GoToLevel2();
         }
     }
 }
