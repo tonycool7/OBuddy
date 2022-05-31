@@ -118,6 +118,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("OBuddyScene");
     }
 
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
     public void UpdateFeedBack(string text)
     {
         currentTime = maxTimer;

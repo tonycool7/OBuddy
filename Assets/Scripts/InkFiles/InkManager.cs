@@ -59,6 +59,10 @@ public class InkManager : MonoBehaviour
                 gameManager.GoToLevel3();
                 
             }
+            else if (value == 2)
+            {
+              gameManager.GoToMainMenu();
+            }
 
         }
     }

@@ -18,7 +18,7 @@ EXTERNAL ChangeMood(characterName, mood)
 
 VAR playerCuriosity = 0
 VAR characterCounter = 0
-VAR endOfInvestigation = false
+VAR endOfInvestigation = 0
 
 
 -> start
@@ -36,7 +36,7 @@ Player: What to say? #askQuestion
 Boss: What does it mean? You either did or you did not!
 ~playerCuriosity+=10
 ->part2
-+ Yes, I, did.
++ Yes, I did.
 Boss: Well done.
 ->part2
 
@@ -84,7 +84,7 @@ Boss: Rabbo has vanished. We discovered that she poisoned your buddy at the part
 Player: Oh, no! What's the other bad news?
 {ChangeMood("Major", "Angry")}
 Boss: We found the dead body of your buddy. 
-{ChangeMood("Player", "Other")}
+{ChangeMood("Player", "Happy")}
 Player: Nooooo... 
 Boss: And Rabbo has run out from our city!
 Player: No, my buuuudddyyyy....
@@ -95,5 +95,5 @@ Chief: You're fired for arresting the wrong monster!
 {ChangeMood("Player", "Other")}
 {HideCharacter("Player")}
 {HideCharacter("Major")}
-~endOfInvestigation = true
+~endOfInvestigation = 2
 -> END
