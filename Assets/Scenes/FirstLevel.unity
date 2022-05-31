@@ -1552,9 +1552,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hello there, Player. Inspector Colgate, Major of Monster City, here. \nMy
-    buddy was to a party with monsters from our city the other day. And he got lost
-    after the party. Please help me in finding him."
+  m_text: 'Hello there! I am Inspector Colgate, the Officer of Monster City!
+
+    My
+    buddy has been missing since yesterday!
+
+    According to rumours, he was at
+    a party with monsters from our city yesterday.
+
+    Please help me find him.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f8d0082f2b5468e47bedaba91667a3d3, type: 2}
   m_sharedMaterial: {fileID: 8683477754607472339, guid: f8d0082f2b5468e47bedaba91667a3d3, type: 2}
@@ -1588,7 +1594,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2025,8 +2031,8 @@ MonoBehaviour:
     - 'The only thing I can tell you is that they were drunk.
 
 '
-    - 'Then there''s the Cyclocat. This fool drank my breakfast smoothie. It took
-      me over an hour to make it!
+    - 'Then there''s Cyclocat. This fool drank my breakfast smoothie. It took me
+      over an hour to make it!
 
 '
 --- !u!1 &881922627
