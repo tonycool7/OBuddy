@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FirstLevel.unity
     guid: f3941109cd3464c908bda8a6df06e3a1
+  - enabled: 1
+    path: Assets/Scenes/BadEndScene.unity
+    guid: d59fa434386404ee4a10b647f0ca2a3a
+  - enabled: 1
+    path: Assets/Scenes/HappyEndScene.unity
+    guid: b75049226c95e4ee398246761764c993
+  - enabled: 1
+    path: Assets/Scenes/OBuddyScene.unity
+    guid: 30e5f5f2433a84828bccd9e1d1d759d5
   m_configObjects: {}

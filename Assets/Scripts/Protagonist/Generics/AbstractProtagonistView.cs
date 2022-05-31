@@ -5,12 +5,15 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
 {
     public float movementSpeed = 20f;
     public event EventHandler<GameCharacterMovedEvent> OnCharacterMoved = (sender, e) => { };
+    public GameObject arrrowToNextLevel;
 
     private Vector2 _targetPosition;
     private float _direction;
     private bool moving = false;
     private Animator protagonistAnimator;
     private DialogueManager dialogueManager;
+    private string monsterTag = "Monster";
+    private string arrowTag = "Arrow";
 
     protected IProtaginistModel model;
     protected IProtaginistController controller;
@@ -42,12 +45,15 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
     private void OnTriggerEnter2D(Collider2D collision)
     {
         model.CollisionDetected = true;
-        if (collision.tag == "Monster")
+        if (collision.tag == monsterTag)
         {
-            print("we hit a monster!");
             IMonstersView monster = collision.GetComponent<IMonstersView>();
             if (monster != null) monster.InitiateDialogue();
+        } else if (collision.tag == arrowTag)
+        {
+            arrrowToNextLevel.gameObject.SetActive(true);
         }
+
     }
 
     protected void MoveProtagonist()

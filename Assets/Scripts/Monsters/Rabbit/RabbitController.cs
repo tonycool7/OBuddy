@@ -14,6 +14,7 @@ public class RabbitController : AbstractMonsterController
         if (inventory != null && inventory.selectedItem && inventory.selectedItem.name == rabbitModel.chest.name)
         {
             inventory.Remove(inventory.selectedItem);
+            rabbitModel.arrowToNextLevel.SetActive(true);
         }
     }
 }

@@ -18,6 +18,7 @@ public class CatController : AbstractMonsterController
             if (inventory.selectedItem.name == catModel.key.name)
             {
                 catModel.cage.SetActive(false);
+                catModel.chestItem.SetActive(true);
                 inventory.Remove(inventory.selectedItem);
                 dialogueManager.StartDialogue(catModel.dialogueForKey);
             } else if (inventory.selectedItem.name == catModel.chest.name)
