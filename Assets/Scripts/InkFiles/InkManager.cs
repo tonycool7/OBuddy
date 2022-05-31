@@ -53,7 +53,13 @@ public class InkManager : MonoBehaviour
         {
             Debug.Log($"Level status: {_endOfInvestigation}, Level is ended: {value}");
             _endOfInvestigation = value;
-            if (value == 1) gameManager.GoToLevel3();
+            if (value == 1)
+            {
+                gameManager.levelOne = false;
+                gameManager.GoToLevel3();
+                
+            }
+
         }
     }
 

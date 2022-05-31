@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI feedbackText;
     public GameObject arrrowToNextLevel;
     public Item expectedItem;
+    public bool levelOne = true; // for handcuff + monster Interactions
 
     bool hasGivenRabbitChest = false;
     bool freedCatState = false;

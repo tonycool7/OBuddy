@@ -1216,6 +1216,7 @@ MonoBehaviour:
   feedbackText: {fileID: 431817458}
   arrrowToNextLevel: {fileID: 0}
   expectedItem: {fileID: 0}
+  levelOne: 0
 --- !u!4 &1200793362
 Transform:
   m_ObjectHideFlags: 0

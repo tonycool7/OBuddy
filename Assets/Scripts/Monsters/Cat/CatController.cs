@@ -31,7 +31,7 @@ public class CatController : AbstractMonsterController
             }
             else if (inventory.selectedItem.name == catModel.handCuff.name)
             {
-                if (levelOne)
+                if (gameManager.levelOne)
                 {
                   dialogueManager.StartDialogue(catModel.dialogueForHandCuff);
                 }
