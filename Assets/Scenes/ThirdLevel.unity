@@ -215,9 +215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hello there, Player. Inspector Colgate, Major of Monster City, here. \nMy
-    buddy was to a party with monsters from our city the other day. And he got lost
-    after the party. Please help me in finding him."
+  m_text: So now I must arrest someone!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f8d0082f2b5468e47bedaba91667a3d3, type: 2}
   m_sharedMaterial: {fileID: 8683477754607472339, guid: f8d0082f2b5468e47bedaba91667a3d3, type: 2}
@@ -251,8 +249,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 8
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2494,7 +2492,11 @@ MonoBehaviour:
   _dialogueForHandCuff:
     characterName: Player
     sentences:
-    - I can't arrest Lizzard, because I don't have enough evidence yet.
+    - 'Mrs. Lizzard, you are accused of being involved in my buddy''s disappearance! '
+    - 'I''m going to arrest you! You have the right to cry, speak, yell, and say
+      anything you want. '
+    - I don't give a damn what you're going to say. Because you're a freak, you don't
+      have the right to a lawyer.
   _handCuff: {fileID: 11400000, guid: fa28a8217c799bb428579b2f4f0ce079, type: 2}
   _dialogueForChest:
     characterName: Lizzard
@@ -2504,14 +2506,7 @@ MonoBehaviour:
   _monsterDialogue:
     characterName: Lizzard
     sentences:
-    - "\u2019m sorry, Inspector. I didn't join the other monsters at the party yesterday.\r\n"
-    - 'The only thing I can tell you is that they were drunk.
-
-'
-    - 'Then there''s the Cyclocat. This fool drank my breakfast smoothie. It took
-      me over an hour to make it!
-
-'
+    - Sir, I'm not guilty! I swear I wasn't even at the party!
 --- !u!4 &923627482
 Transform:
   m_ObjectHideFlags: 0
@@ -2865,7 +2860,11 @@ MonoBehaviour:
   _dialogueForHandCuff:
     characterName: Player
     sentences:
-    - I can't arrest Rabbo, because I don't have enough evidence yet.
+    - 'Mrs. Rabbo, you are accused of being involved in my buddy''s disappearance! '
+    - 'I''m going to arrest you! You have the right to cry, speak, yell, and say
+      anything you want. '
+    - I don't give a damn what you're going to say. Because you're a freak, you don't
+      have the right to a lawyer.
   _handCuff: {fileID: 11400000, guid: fa28a8217c799bb428579b2f4f0ce079, type: 2}
   _dialogueForChest:
     characterName: Rabbo
@@ -2875,13 +2874,7 @@ MonoBehaviour:
   _monsterDialogue:
     characterName: Rabbo
     sentences:
-    - 'Hello, Inspector. The one thing I can tell you is that your buddy left the
-      party a little early yesterday.
-
-'
-    - 'He didn''t even drink with us.
-
-'
+    - I was honest with you. I simply had a brief encounter with your buddy...
 --- !u!1 &1153812606
 GameObject:
   m_ObjectHideFlags: 0
@@ -4224,7 +4217,11 @@ MonoBehaviour:
   _dialogueForHandCuff:
     characterName: Player
     sentences:
-    - I can't arrest Cyclocat, because I don't have enough evidence yet.
+    - 'Mr. Cyclocat, you are accused of being involved in my buddy''s disappearance! '
+    - 'I''m going to arrest you! You have the right to cry, speak, yell, and say
+      anything you want. '
+    - I don't give a damn what you're going to say. Because you're a freak, you don't
+      have the right to a lawyer.
   _handCuff: {fileID: 11400000, guid: fa28a8217c799bb428579b2f4f0ce079, type: 2}
   _dialogueForChest:
     characterName: Cyclocat
@@ -4256,7 +4253,8 @@ MonoBehaviour:
   dialogueForFreeCat:
     characterName: Cyclocat
     sentences:
-    - Thanks for letting me out
+    - I really want you to find your buddy. I do not lie, sir! I informed you of
+      all I knew.
   key: {fileID: 11400000, guid: 2b7567acb229b8148911e10d6512d9fb, type: 2}
   cage: {fileID: 1628304568}
   chestItem: {fileID: 1374609184}
