@@ -23,7 +23,7 @@ EXTERNAL ShowScene(sceneName, position)
 // curiosity for Easter Egg
 VAR playerCuriosity = 0
 VAR characterCounter = 0
-VAR endOfInvestigation = false
+VAR endOfInvestigation = 0
 
 
 
@@ -33,7 +33,7 @@ VAR endOfInvestigation = false
 
 {ShowCharacter("Player", "Left", "Serious")}
 
-Player: So, let's start! #askQuestion
+Player: So, let's start investigation! #askQuestion
 
 
 -> character_choose
@@ -133,7 +133,7 @@ Player: So, Lizzard put you in the cage?
 {ChangeMood("Cyclocat", "Angry")}
 Cyclocat: Yes, that freak!
 {ChangeMood("Player", "Happy")}
-Player: Because you drank his smoothie?
+Player: Because you drank her smoothie?
 Cyclocat: Yes.
 Player: Bastard!
 {ChangeMood("Cyclocat", "Serious")}
@@ -246,7 +246,7 @@ Player: Let's ask him... #askQuestion
 === tell_about_buddy2 ===
 Lizzard: I'm completely unaware of the situation.
 Player: Who knows?
-Lizzard: I don't know who knows?
+Lizzard: I don't know who knows!
 {ChangeMood("Player", "Angry")}
 Player: What you know?
 {ChangeMood("Lizzard", "Other")}
@@ -275,7 +275,7 @@ Player: Shut up!
 Lizzard: I wasn't at party.
 Player: Why?
 {ChangeMood("Lizzard", "Happy")}
-Lizzard: Because I dont have QR!
+Lizzard: Because I dont have a QR!
 {ChangeMood("Player", "Happy")}
 Player: Oh, I see.
 {ChangeMood("Lizzard", "Happy")}
@@ -283,7 +283,7 @@ Lizzard: Any other question?
 {ChangeMood("Player", "Angry")}
 Player: You think I'm as dumb as you are to have taken your word for it? Stop playing games and give me the truth, because I know you were at the party the other night.
 {ChangeMood("Lizzard", "Serious")}
-Lizzard: Whoever said I was at the party, they were lying! Sir, they're deceiving you, sir!
+Lizzard: Whoever said I was at the party, they were lying! They're deceiving you, sir!
 {ChangeMood("Player", "Good")}
 Player: Okay, I'll go ahead and get on with my investigation. Don't you ever try to fool me!
 {ChangeMood("Lizzard", "Good")}
@@ -335,20 +335,20 @@ Rabbo: Yes, exactly!
 Rabbo: There was a gift for my boyfriend.
 Player: Who is your boyfriend?
 {ChangeMood("Rabbo", "Other")}
-Rabbo: Grizzly, and bought a teddy bear for him!
+Rabbo: Grizzly, and I bought a teddy bear for him!
 {ChangeMood("Player", "Angry")}
 Player: Stop telling me about your idiotic gifts to your boyfriend!
 {ChangeMood("Rabbo", "Angry")}
 Rabbo: But you just asked me to tell it, sir!
 {ChangeMood("Player", "Good")}
-Player: Was there any bottle or some liquid?
+Player: Was there any bottle or some liquid in the chest?
 {ChangeMood("Rabbo", "Good")}
 Rabbo: No, sir. There was only the teddy bear!
 Player: Okey, get out!
 {ChangeMood("Rabbo", "Happy")}
 Rabbo: What?
 {ChangeMood("Player", "Angry")}
-Player:Get out!
+Player: Get out!
 {ChangeMood("Rabbo", "Good")}
 {HideCharacter("Rabbo")}
 ~characterCounter++
@@ -383,5 +383,5 @@ Boss: Could you collect enough evidence to arrest someone?
 Player: Yes, I think I have now!
 {ChangeMood("Major", "Good")}
 Boss: Then, all the best! Let the person who committed this crime be arrested!
-~endOfInvestigation = true
+~endOfInvestigation = 1
 ->END

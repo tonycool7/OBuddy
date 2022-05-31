@@ -35,9 +35,10 @@ public class InkManager : MonoBehaviour
 
         get => _playerCuriosity;
         private set
-        {
-            gameManager.UpdateFeedBack($"Updating Player's curiosity level. Current Level: {_playerCuriosity}, Updated level: {value}");
+        { 
+            Debug.Log($"Updating Player's curiosity level. Current Level: {_playerCuriosity}, Updated level: {value}");
             _playerCuriosity = value;
+        //  gameManager.UpdateFeedBack($"Updating Player's curiosity level. Current Level: {_playerCuriosity}, Updated level: {value}");
         }
     }
 
@@ -52,7 +53,7 @@ public class InkManager : MonoBehaviour
         {
             Debug.Log($"Level status: {_endOfInvestigation}, Level is ended: {value}");
             _endOfInvestigation = value;
-            if (value == 1) gameManager.GoToLevel2();
+            if (value == 1) gameManager.GoToLevel3();
         }
     }
 
