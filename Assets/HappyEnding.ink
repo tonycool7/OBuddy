@@ -18,7 +18,7 @@ EXTERNAL ChangeMood(characterName, mood)
 
 VAR playerCuriosity = 0
 VAR characterCounter = 0
-VAR endOfInvestigation = false
+VAR endOfInvestigation = 0
 
 
 -> start
@@ -91,14 +91,14 @@ Buddy: Buddyyy!!
 {ChangeMood("Player", "Happy")}
 Player: Buddddy!
 {ChangeMood("Patrick", "Happy")}
-Buddy: That racict Rabbo wantedt to poison me!
+Buddy: That racist Rabbo wanted to poison me!
 Player: Piece of a carrot!
-Buddy: If you wouldnt arrest her today I probably would be dead at the moment!
+Buddy: I'd probably be dead if you hadn't arrested her today!
 Player: Your buddy knows his job!
 {ChangeMood("Player", "Good")}
-Boss: And that's why I am proud of it!
+Buddy: And that's why I am proud of it!
 {ChangeMood("Patrick", "Good")}
 {HideCharacter("Player")}
 {HideCharacter("Patrick")}
-~endOfInvestigation = true
+~endOfInvestigation = 2
 -> END
