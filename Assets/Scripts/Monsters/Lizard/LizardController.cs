@@ -16,8 +16,15 @@ public class LizardController : AbstractMonsterController
 
         if (inventory != null && inventory.selectedItem && inventory.selectedItem.name == lizardModel.handCuff.name)
         {
+            if (levelOne)
+            {
+            dialogueManager.StartDialogue(lizardModel.dialogueForHandCuff);
+            }
+            else
+            { 
             gameManager.goToBadEnding = true;
             dialogueManager.StartDialogue(lizardModel.dialogueForHandCuff);
+            }
         }
     }
 }

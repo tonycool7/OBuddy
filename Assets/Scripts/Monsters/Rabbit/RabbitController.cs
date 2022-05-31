@@ -19,8 +19,15 @@ public class RabbitController : AbstractMonsterController
         }
         else if (inventory.selectedItem.name == rabbitModel.handCuff.name)
         {
+            if (levelOne)
+            {
+            dialogueManager.StartDialogue(rabbitModel.dialogueForHandCuff);
+            }
+            else
+            { 
             gameManager.goToHappyEnding = true;
             dialogueManager.StartDialogue(rabbitModel.dialogueForHandCuff);
+            }
         }
     }
 }
