@@ -3567,7 +3567,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3646,7 +3646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 313.1349, y: 186.68842}
+  m_AnchoredPosition: {x: 313.1349, y: 177}
   m_SizeDelta: {x: -626.2698, y: -373.3768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1303402908
@@ -3786,8 +3786,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBtn: {fileID: 0}
-  optionsBtn: {fileID: 0}
+  creditBtn: {fileID: 0}
+  aboutBtn: {fileID: 0}
   quitBtn: {fileID: 0}
+  backBtn: {fileID: 0}
   feedbackText: {fileID: 1298441745}
   arrrowToNextLevel: {fileID: 333397019}
   expectedItem: {fileID: 11400000, guid: fa28a8217c799bb428579b2f4f0ce079, type: 2}
