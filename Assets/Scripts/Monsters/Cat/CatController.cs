@@ -31,8 +31,15 @@ public class CatController : AbstractMonsterController
             }
             else if (inventory.selectedItem.name == catModel.handCuff.name)
             {
-                gameManager.goToBadEnding = gameManager.levelOne;
+                if (gameManager.levelOne)
+                {
+                    dialogueManager.StartDialogue(catModel.dialogueForHandCuff);
+                }
+                else
+                {
+                    gameManager.goToBadEnding = true; // gameManager.levelOne;
                 dialogueManager.StartDialogue(catModel.dialogueForHandCuff);
+                }
             } 
         }
         else if (!catModel.cage.activeInHierarchy)
