@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("MensuScene");
+        SceneManager.LoadScene("MenuScene");
     }
 
     public void UpdateFeedBack(string text)

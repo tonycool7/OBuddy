@@ -29,7 +29,6 @@ VAR endOfInvestigation = 0
 {ShowCharacter("Player", "Left", "Serious")}
 Boss: Inspector Colagate!
 Player: Yes, sir!
-~endOfInvestigation = 1
 Boss: Did you arrest someone?
 {ChangeMood("Player", "Good")}
 Player: What to say? #askQuestion
@@ -93,8 +92,19 @@ Buddy: Buddyyy!!
 Player: Buddddy!
 {ChangeMood("Patrick", "Happy")}
 Buddy: That racist Rabbo wanted to poison me!
+{ChangeMood("Player", "Angry")}
 Player: Piece of a carrot!
-Buddy: I'd probably be dead if you hadn't arrested her today!
+Buddy: She hates us just because we are humanoids! Freaking Monster!
+Player: What about Lizzard? Was she with you yesterday?
+{ChangeMood("Patrick", "Good")}
+Buddy: Yes, she also was there!
+{ChangeMood("Player", "Angry")}
+Player: But she assured me that she was not.
+Buddy: Perhaps she was just scared. After all, she fought with Cyclocat and caged him. So she probably believed she'd done enough to be labeled as a suspect.
+{ChangeMood("Player", "Happy")}
+Player: That was really dumb of her.
+{ChangeMood("Patrick", "Happy")}
+Buddy: Indeed. Anyway, I'd probably be dead if you hadn't arrested Rabbo today!
 Player: Your buddy knows his job!
 {ChangeMood("Player", "Good")}
 Buddy: And that's why I am proud of it!
