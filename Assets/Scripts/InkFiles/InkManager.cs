@@ -62,7 +62,7 @@ public class InkManager : MonoBehaviour
             }
             else if (value == 2)
             {
-                gameManager.GoToMainMenu();
+                gameManager.OpenCreditScene();
             }
         }
     }

@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     string badEndScene = "BadEndScene";
     string creditScene = "CreditScene";
     string aboutScene = "AboutScene";
-    string menuScene = "CreditScene";
+    string menuScene = "MenuScene";
 
     Inventory inventory;
 
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         if (conditionToMoveToLevel2) DisplayArrowToNextLevel();
     }
 
-    void OpenCreditScene()
+    public void OpenCreditScene()
     {
         SceneManager.LoadScene(creditScene);
     }
