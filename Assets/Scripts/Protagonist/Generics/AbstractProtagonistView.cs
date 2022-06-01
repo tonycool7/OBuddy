@@ -62,6 +62,7 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         {
             _direction = transform.position.x > model.currentPosition.x ? 1f : -1f;
             transform.position = Vector2.MoveTowards(transform.position, model.currentPosition, Speed);
+            SetAnimation(_direction);
         }
         else
         {
@@ -69,7 +70,6 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
             moving = false;
         }
 
-        SetAnimation(_direction);
     }
 
     protected virtual void SetAnimation(float direction)
