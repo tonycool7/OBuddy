@@ -2579,8 +2579,8 @@ MonoBehaviour:
   _monsterDialogue:
     characterName: Rabbo
     sentences:
-    - 'Hello, Inspector. The one thing I can tell you is that your buddy left the
-      party a little early yesterday.
+    - 'Hey, Inspector. The one thing I can tell you is that your buddy left the party
+      a little early yesterday.
 
 '
     - 'He didn''t even drink with us.
