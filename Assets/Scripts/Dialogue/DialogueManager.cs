@@ -10,8 +10,10 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject dialoguePanel;
     public bool isDialoueOpen = true;
+
     private Queue<string> sentences;
     GameManager gameManager;
+    AudioSource audioSource;
 
     #region Singleton
     public static DialogueManager instance;
@@ -31,6 +33,7 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         gameManager = GameManager.instance;
+        audioSource = transform.GetComponent<AudioSource>();
     }
 
     void CloseDialoguePanel()
@@ -41,6 +44,7 @@ public class DialogueManager : MonoBehaviour
 
     void OpenDialoguePanel()
     {
+        audioSource.Play();
         isDialoueOpen = true;
         dialoguePanel.SetActive(true);
     }

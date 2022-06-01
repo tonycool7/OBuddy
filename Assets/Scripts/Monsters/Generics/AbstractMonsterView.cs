@@ -14,16 +14,6 @@ public class AbstractMonsterView : MonoBehaviour, IMonstersView
     protected IMonstersModel model;
     protected IMonstersController controller;
     protected TextMeshProUGUI dialogueText;
-    protected AudioSource audioSource;
-
-    private void Update()
-    {
-    }
-
-    private void Start()
-    {
-        audioSource = transform.GetComponent<AudioSource>();
-    }
 
     // emit an event that will be captured by the monstercontroller, who will update the monstermodel
     public void MonsterHitByRay()
@@ -43,7 +33,6 @@ public class AbstractMonsterView : MonoBehaviour, IMonstersView
 
     public void InitiateDialogue()
     {
-        audioSource.Play();
         controller.MonsterSpeaking();
     }
 

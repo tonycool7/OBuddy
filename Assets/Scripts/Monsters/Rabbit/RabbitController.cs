@@ -12,13 +12,14 @@ public class RabbitController : AbstractMonsterController
         base.MonsterSpeaking();
         gameManager = GameManager.instance;
         inventory = Inventory.instance;
+        dialogueManager = DialogueManager.instance;
 
         if (inventory != null && inventory.selectedItem && inventory.selectedItem.name == rabbitModel.chest.name)
         {
             inventory.Remove(inventory.selectedItem);
             gameManager.SetHasGivenRabbitChest(true);
         }
-        else if (inventory.selectedItem.name == rabbitModel.handCuff.name)
+        else if (inventory != null && inventory.selectedItem && inventory.selectedItem.name == rabbitModel.handCuff.name)
         {
             if (gameManager.levelOne)
             {
