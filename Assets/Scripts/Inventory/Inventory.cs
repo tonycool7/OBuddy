@@ -25,7 +25,8 @@ public class Inventory : MonoBehaviour
     public event EventHandler<ItemAddedToInventory> OnItemAddedToInventory = (sender, args) => { };
     public event EventHandler<ItemRemovedFromInventory> OnItemRemovedFromInventory = (sender, args) => { };
 
-    private Item _selectedItem;
+    Item _selectedItem;
+    AudioSource audioSource;
 
     public Item selectedItem { get { return _selectedItem; } set { _selectedItem = value; } }
 
@@ -44,6 +45,11 @@ public class Inventory : MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        audioSource = transform.GetComponent<AudioSource>();
+    }
+
     public bool Add(Item item)
     {
         if (item.isDefaultItem && items.Count > spaceSlots)
@@ -53,6 +59,7 @@ public class Inventory : MonoBehaviour
         }
 
         items.Add(item);
+        audioSource.Play();
         // Invoke the event only when a class / method is subscribed to it
         OnItemAddedToInventory?.Invoke(this, new ItemAddedToInventory(item));
         return true;

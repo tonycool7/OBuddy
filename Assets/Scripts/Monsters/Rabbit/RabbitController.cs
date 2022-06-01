@@ -11,6 +11,7 @@ public class RabbitController : AbstractMonsterController
     {
         base.MonsterSpeaking();
         gameManager = GameManager.instance;
+        inventory = Inventory.instance;
 
         if (inventory != null && inventory.selectedItem && inventory.selectedItem.name == rabbitModel.chest.name)
         {

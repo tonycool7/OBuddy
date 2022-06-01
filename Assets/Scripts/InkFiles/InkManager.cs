@@ -63,7 +63,6 @@ public class InkManager : MonoBehaviour
             {
               gameManager.GoToMainMenu();
             }
-
         }
     }
 

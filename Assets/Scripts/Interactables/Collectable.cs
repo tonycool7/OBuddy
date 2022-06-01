@@ -4,7 +4,6 @@ public class Collectable : AInteractables
 {
     public Item item;
     GameManager gameManager;
-
     private void Start()
     {
         gameManager = GameManager.instance;
