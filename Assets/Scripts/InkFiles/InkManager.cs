@@ -53,6 +53,7 @@ public class InkManager : MonoBehaviour
         {
             Debug.Log($"Level status: {_endOfInvestigation}, Level is ended: {value}");
             _endOfInvestigation = value;
+  
             if (value == 1)
             {
                 gameManager.levelOne = false;
@@ -61,7 +62,7 @@ public class InkManager : MonoBehaviour
             }
             else if (value == 2)
             {
-              gameManager.GoToMainMenu();
+                gameManager.GoToMainMenu();
             }
         }
     }

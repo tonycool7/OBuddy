@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
     public int spaceSlots = 3;
     public event EventHandler<ItemAddedToInventory> OnItemAddedToInventory = (sender, args) => { };
     public event EventHandler<ItemRemovedFromInventory> OnItemRemovedFromInventory = (sender, args) => { };
+    GameManager gameManager;
 
     Item _selectedItem;
     AudioSource audioSource;
@@ -48,6 +49,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         audioSource = transform.GetComponent<AudioSource>();
+        gameManager = GameManager.instance;
     }
 
     public bool Add(Item item)
@@ -59,7 +61,8 @@ public class Inventory : MonoBehaviour
         }
 
         items.Add(item);
-        audioSource.Play();
+        if (gameManager.levelOne)
+        {audioSource.Play(); }
         // Invoke the event only when a class / method is subscribed to it
         OnItemAddedToInventory?.Invoke(this, new ItemAddedToInventory(item));
         return true;

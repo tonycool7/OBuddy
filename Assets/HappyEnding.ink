@@ -29,6 +29,7 @@ VAR endOfInvestigation = 0
 {ShowCharacter("Player", "Left", "Serious")}
 Boss: Inspector Colagate!
 Player: Yes, sir!
+~endOfInvestigation = 1
 Boss: Did you arrest someone?
 {ChangeMood("Player", "Good")}
 Player: What to say? #askQuestion
