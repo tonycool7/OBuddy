@@ -37,7 +37,7 @@ public class InkManager : MonoBehaviour
         private set
         { 
             Debug.Log($"Updating Player's curiosity level. Current Level: {_playerCuriosity}, Updated level: {value}");
-            if (gameManager != null) gameManager.UpdateFeedBack($"Updating Player's curiosity level. Current Level: {_playerCuriosity}, Updated level: {value}");
+            if (gameManager != null) gameManager.UpdateFeedBack($"Your curiosity level updated from {_playerCuriosity} to {value}");
             _playerCuriosity = value;
         }
     }

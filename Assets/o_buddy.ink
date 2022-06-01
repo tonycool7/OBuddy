@@ -272,7 +272,7 @@ Player: Shut up!
 
 ===tell_about_party2===
 {ChangeMood("Lizzard", "Serious")}
-Lizzard: I wasn't at party.
+Lizzard: I wasn't at the party.
 Player: Why?
 {ChangeMood("Lizzard", "Happy")}
 Lizzard: Because I dont have a QR!
@@ -328,6 +328,7 @@ Rabbo: Maybe a t-shirt with the logo of some well-known musical group?
 Player: The Scrolling Thrones T-shirt?
 {ChangeMood("Rabbo", "Happy")}
 Rabbo: Yes, exactly!
+~playerCuriosity += 10
 ->Rabbo_question
 
 ===tell_about_chest2===
@@ -368,6 +369,7 @@ Player: So, Lizzard was with you?
 Rabbo: They were arguing all night long over some foods, wasn't that the case?
 {ChangeMood("Player", "Angry")}
 Player: I am asking questions, not you!
+~playerCuriosity += 15
 ->Rabbo_question
 
 ===major_story===
