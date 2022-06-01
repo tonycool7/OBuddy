@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IProtaginistController
 {
-
+    void PointAndMove();
 }

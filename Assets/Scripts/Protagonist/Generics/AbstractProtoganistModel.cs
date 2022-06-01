@@ -3,20 +3,20 @@ using System;
 
 public abstract class AbstractProtagonistModel : MonoBehaviour, IProtaginistModel
 {
-	private Vector2 _CurrentPosition;
-	private bool _CollisionDetected = false;
+	private Vector2 _currentPosition;
+	private bool _collisionDetected = false;
 
 	public event EventHandler<PositionChangedEventArgs> OnPositionChanged = (sender, e) => { };
 
-	public Vector2 CurrentPosition {
-		get { return _CurrentPosition;  }
+	public Vector2 currentPosition {
+		get { return _currentPosition;  }
 		set
 		{
 			// Only if the position changes
-			if (_CurrentPosition != value)
+			if (_currentPosition != value)
 			{
 				// Set new position
-				_CurrentPosition = value;
+				_currentPosition = value;
 
 				// Dispatch the 'position changed' event
 				var eventArgs = new PositionChangedEventArgs();
@@ -25,5 +25,5 @@ public abstract class AbstractProtagonistModel : MonoBehaviour, IProtaginistMode
 		}
 	}
 
-    public bool CollisionDetected { get => _CollisionDetected; set { _CollisionDetected = value;  } }
+    public bool collisionDetected { get => _collisionDetected; set { _collisionDetected = value;  } }
 }

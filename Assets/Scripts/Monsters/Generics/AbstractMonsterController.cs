@@ -6,7 +6,6 @@ public class AbstractMonsterController : IMonstersController
     protected DialogueManager dialogueManager;
     protected Inventory inventory;
     protected GameManager gameManager;
-    
 
     public AbstractMonsterController(IMonstersModel IModel)
     {

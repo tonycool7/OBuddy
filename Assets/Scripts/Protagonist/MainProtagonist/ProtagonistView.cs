@@ -5,13 +5,8 @@ using System;
 
 public class ProtagonistView : AbstractProtagonistView
 {
-    private ProtagonistModel specificModel;
-
     public ProtagonistView()
     {
-        controller = new ProtagonistController(specificModel);
-        specificModel = new ProtagonistModel();
-        model = specificModel;
     }
 
 }

@@ -9,6 +9,6 @@ public class PositionChangedEventArgs : EventArgs
 public interface IProtaginistModel
 {
     event EventHandler<PositionChangedEventArgs> OnPositionChanged;
-    Vector2 CurrentPosition { get;  set; }
-    bool CollisionDetected { get; set; }
+    Vector2 currentPosition { get;  set; }
+    bool collisionDetected { get; set; }
 }

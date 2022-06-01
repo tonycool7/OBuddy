@@ -6,27 +6,30 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
     public float movementSpeed = 20f;
     public event EventHandler<GameCharacterMovedEvent> OnCharacterMoved = (sender, e) => { };
 
-    private Vector2 _targetPosition;
     private float _direction;
     private bool moving = false;
     private Animator protagonistAnimator;
     private DialogueManager dialogueManager;
     private string monsterTag = "Monster";
     private string arrowTag = "Arrow";
+    IProtaginistModel model;
+    IProtaginistController controller;
     GameManager gameManager;
 
-    protected IProtaginistModel model;
-    protected IProtaginistController controller;
+    public Transform modelObj;
+    public Transform controllerObj;
     protected bool collisionDetected = false;
 
     private float Speed => Time.deltaTime * movementSpeed;
 
     void Awake()
     {
-        _targetPosition = transform.position;
     }
     void Start()
     {
+        model = modelObj.GetComponent<IProtaginistModel>();
+        controller = controllerObj.GetComponent<IProtaginistController>();
+        model.currentPosition = transform.position;
         gameManager = GameManager.instance;
         dialogueManager = DialogueManager.instance;
         protagonistAnimator = transform.GetComponent<Animator>();
@@ -37,15 +40,15 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         if (Input.GetMouseButtonDown(0) && !dialogueManager.isDialoueOpen)
         {
             moving = true;
-            model.CollisionDetected = false;
-            CastRay();
+            model.collisionDetected = false;
+            controller.PointAndMove();
         }
         MoveProtagonist();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        model.CollisionDetected = true;
+        model.collisionDetected = true;
         if (collision.tag == monsterTag)
         {
             IMonstersView monster = collision.GetComponent<IMonstersView>();
@@ -55,10 +58,10 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
 
     protected void MoveProtagonist()
     {
-        if (moving && (Vector2)transform.position != _targetPosition && !model.CollisionDetected)
+        if (moving && (Vector2)transform.position != model.currentPosition && !model.collisionDetected)
         {
-            _direction = transform.position.x > _targetPosition.x ? 1f : -1f;
-            transform.position = Vector2.MoveTowards(transform.position, _targetPosition, Speed);
+            _direction = transform.position.x > model.currentPosition.x ? 1f : -1f;
+            transform.position = Vector2.MoveTowards(transform.position, model.currentPosition, Speed);
         }
         else
         {
@@ -67,32 +70,6 @@ public abstract class AbstractProtagonistView : MonoBehaviour, IProtaginistView
         }
 
         SetAnimation(_direction);
-    }
-
-    protected void CastRay()
-    {
-        Vector3 screenMouseClick = Input.mousePosition;
-        Vector2 worldClickPostion = Camera.main.ScreenToWorldPoint(screenMouseClick);
-
-        RaycastHit2D hit = Physics2D.Raycast(worldClickPostion, Vector2.zero);
-     
-        if (hit)
-        {
-            print(hit.collider.tag);
-            switch (hit.collider.tag)
-            {
-                case "Floor":
-                    _targetPosition = hit.point;
-                    break;
-                case "Monster":
-                    IMonstersView monster = hit.collider.GetComponent<IMonstersView>();
-                    if (monster != null) monster.MonsterHitByRay();
-                    _targetPosition = hit.point;
-                    break;
-                default:
-                    break;
-            }
-        }
     }
 
     protected virtual void SetAnimation(float direction)
