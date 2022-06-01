@@ -231,7 +231,7 @@ Cyclocat: Bye, sir.
 {ShowCharacter("Lizzard", "Right", "Good")}
 {ChangeMood("Player", "Good")}
 Lizzard: Hey, sir!
-Player: Let's ask him... #askQuestion
+Player: Let's ask her... #askQuestion
 -> Lizzard_question
 
 === Lizzard_question ===
@@ -298,7 +298,7 @@ Player: Well, get out now!
 {ShowCharacter("Rabbo", "Right", "Good")}
 {ChangeMood("Player", "Good")}
 Rabbo: I am here, sir!
-Player: Let's ask him... #askQuestion
+Player: Let's ask her... #askQuestion
 -> Rabbo_question
 
 === Rabbo_question ===

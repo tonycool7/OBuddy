@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     string badEndScene = "BadEndScene";
     string creditScene = "CreditScene";
     string aboutScene = "AboutScene";
-    string menuScene = "MenuScene";
+    string menuScene = "CreditScene";
 
     Inventory inventory;
 
